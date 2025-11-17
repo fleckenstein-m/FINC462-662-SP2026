@@ -30,4 +30,6 @@ weight: 2
 
 ## Lectures
 
-- [Lecture 1 Slides](../../lecture-slides/Lecture_01.html)
+- [Lecture 1 Slides](../../lecture-slides/Lecture-01.html)
+- [Colab Notebook](https://colab.research.google.com/drive/1gkUS2lEbgIAKWLnPz6yKOxopbJXidsOr?usp=sharing)
+- [SIFMA Data](../../data/SIFMA-CMFactBook-2025-DataTablesWebsite.xlsx)

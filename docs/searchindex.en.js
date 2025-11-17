@@ -41,8 +41,8 @@ var relearn_searchindex = [
   },
   {
     "breadcrumb": "FINC462/662 - Fixed Income Securities \u003e Lectures",
-    "content": "Lectures\rLecture 1 Slides",
-    "description": "Lectures\rLecture 1 Slides",
+    "content": "Lectures\rLecture 1 Slides Colab Notebook SIFMA Data",
+    "description": "Lectures\rLecture 1 Slides Colab Notebook SIFMA Data",
     "tags": [],
     "title": "Lecture 02",
     "uri": "/FINC462-662-SP2026/lectures/lecture_02/index.html"
