@@ -48,52 +48,12 @@ var relearn_searchindex = [
     "uri": "/FINC462-662-SP2026/lectures/lecture_02/index.html"
   },
   {
-    "breadcrumb": "FINC409/609 - Fixed Income Securities \u003e Assignments",
-    "content": "Problem Set",
-    "description": "Problem Set",
-    "tags": [],
-    "title": "Assignment 03",
-    "uri": "/FINC462-662-SP2026/assignments/assignment_03/index.html"
-  },
-  {
     "breadcrumb": "FINC409/609 - Fixed Income Securities \u003e Lectures",
     "content": "Lecture Materials\rLecture 3 Slides Lecture 3 Quiz Miscellaneous\rPractice Problems Practice Problem Excel",
     "description": "Lecture Materials\rLecture 3 Slides Lecture 3 Quiz Miscellaneous\rPractice Problems Practice Problem Excel",
     "tags": [],
     "title": "Lecture 03",
     "uri": "/FINC462-662-SP2026/lectures/lecture_03/index.html"
-  },
-  {
-    "breadcrumb": "FINC409/609 - Fixed Income Securities \u003e Assignments",
-    "content": "Problem Set",
-    "description": "Problem Set",
-    "tags": [],
-    "title": "Assignment 04",
-    "uri": "/FINC462-662-SP2026/assignments/assignment_04/index.html"
-  },
-  {
-    "breadcrumb": "FINC409/609 - Fixed Income Securities \u003e Lectures",
-    "content": "Lecture Materials\rLecture 4 Slides Lecture 4 Quiz Miscellaneous\rPractice Problem Excel",
-    "description": "Lecture Materials\rLecture 4 Slides Lecture 4 Quiz Miscellaneous\rPractice Problem Excel",
-    "tags": [],
-    "title": "Lecture 04",
-    "uri": "/FINC462-662-SP2026/lectures/lecture_04/index.html"
-  },
-  {
-    "breadcrumb": "FINC409/609 - Fixed Income Securities \u003e Lectures",
-    "content": "Lecture Materials\rLecture 5 Slides Lecture 5 Quiz Miscellaneous\rPractice Problem Discount Factors Excel Practice Problem Treasury Auction Excel",
-    "description": "Lecture Materials\rLecture 5 Slides Lecture 5 Quiz Miscellaneous\rPractice Problem Discount Factors Excel Practice Problem Treasury Auction Excel",
-    "tags": [],
-    "title": "Lecture 05",
-    "uri": "/FINC462-662-SP2026/lectures/lecture_05/index.html"
-  },
-  {
-    "breadcrumb": "FINC409/609 - Fixed Income Securities \u003e Lectures",
-    "content": "Lecture Materials\rLecture 6 Slides Lecture 6 Quiz Miscellaneous\rPractice Problems Yield to Maturity Excel",
-    "description": "Lecture Materials\rLecture 6 Slides Lecture 6 Quiz Miscellaneous\rPractice Problems Yield to Maturity Excel",
-    "tags": [],
-    "title": "Lecture 06",
-    "uri": "/FINC462-662-SP2026/lectures/lecture_06/index.html"
   },
   {
     "breadcrumb": "FINC409/609 - Fixed Income Securities",
