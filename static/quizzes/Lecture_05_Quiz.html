@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FINC462/662 - Fixed Income Seccurities: Lecture 05 Quiz</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: #f5f7fb;
+            margin: 0;
+            padding: 0;
+        }
+
+        .quiz-container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 24px 28px 40px;
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        h1 {
+            margin-top: 0;
+            font-size: 28px;
+            text-align: center;
+        }
+
+        .intro {
+            text-align: center;
+            margin-bottom: 24px;
+            color: #444;
+        }
+
+        .question {
+            border: 1px solid #e0e4f0;
+            border-radius: 10px;
+            padding: 16px 18px 18px;
+            margin-bottom: 18px;
+            background: #fafbff;
+        }
+
+        .question h2 {
+            margin: 0 0 8px;
+            font-size: 18px;
+        }
+
+        .q-text {
+            margin: 0 0 10px;
+            color: #333;
+        }
+
+        .option {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            margin-bottom: 6px;
+            padding: 6px 8px;
+            border-radius: 6px;
+            transition: background 0.15s ease, border 0.15s ease;
+            border: 1px solid transparent;
+        }
+
+        .option input[type="radio"] {
+            margin-top: 3px;
+        }
+
+        .option span {
+            flex: 1;
+        }
+
+        .option.correct {
+            border-color: #24a148;
+            background: #e6f4ea;
+        }
+
+        .option.incorrect {
+            border-color: #da1e28;
+            background: #ffebeb;
+        }
+
+        .option.selected:not(.correct):not(.incorrect) {
+            border-color: #8a3ffc;
+            background: #f3ecff;
+        }
+
+        .check-btn,
+        .reset-btn {
+            margin-top: 6px;
+            padding: 8px 14px;
+            border-radius: 999px;
+            border: none;
+            font-size: 14px;
+            cursor: pointer;
+            background: #0f62fe;
+            color: #fff;
+            transition: background 0.15s ease, transform 0.05s ease, box-shadow 0.15s ease;
+        }
+
+        .check-btn:hover,
+        .reset-btn:hover {
+            background: #0043ce;
+            box-shadow: 0 4px 10px rgba(15, 98, 254, 0.25);
+        }
+
+        .check-btn:active,
+        .reset-btn:active {
+            transform: translateY(1px);
+            box-shadow: none;
+        }
+
+        .reset-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .reset-btn {
+            background: #697077;
+        }
+
+        .reset-btn:hover {
+            background: #4d5358;
+        }
+
+        .feedback {
+            margin-top: 8px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .feedback.correct {
+            color: #0e6027;
+        }
+
+        .feedback.incorrect {
+            color: #a2191f;
+        }
+
+        .feedback.neutral {
+            color: #444;
+        }
+    </style>
+</head>
+<body>
+
+  <h1>FINC462/662 - Fixed Income Securities</h1>
+  <h2>Prof. Matt Fleckenstein</h2>
+  <h2>Lecture 5 - Quiz</h2>
+
+<div class="quiz-container">
+    <h1>Bond Pricing & Discount Factors Quiz</h1>
+    <p class="intro">
+        Select the best answer for each question, then click <strong>“Check answer”</strong> to see feedback.
+    </p>
+
+    <!-- Question 1 -->
+    <div class="question" id="q1"
+         data-correct-msg="Correct. "
+         data-incorrect-msg="Not quite. Try again.">
+        <h2>Question 1</h2>
+        <p class="q-text">
+            How is the <strong>dirty (full) price</strong> of a bond conceptually determined?
+        </p>
+        <label class="option">
+            <input type="radio" name="q1" id="q1a">
+            <span>It is the quoted clean price plus a market-convention adjustment unrelated to future cash flows.</span>
+        </label>
+        <label class="option">
+            <input type="radio" name="q1" id="q1b">
+            <span>It is the present value of all future coupon and principal cash flows discounted at the appropriate interest rates.</span>
+        </label>
+        <label class="option">
+            <input type="radio" name="q1" id="q1c">
+            <span>It is the sum of all future coupon payments without discounting, plus par value.</span>
+        </label>
+        <label class="option">
+            <input type="radio" name="q1" id="q1d">
+            <span>It is defined purely by supply and demand and has no relationship to discounted cash flows.</span>
+        </label>
+        <button type="button" class="check-btn" onclick="checkAnswer('q1','q1b')">Check answer</button>
+        <div class="feedback"></div>
+    </div>
+
+    <!-- Question 2 -->
+    <div class="question" id="q2"
+         data-correct-msg="Correct. "
+         data-incorrect-msg="Not quite. Try again.">
+        <h2>Question 2</h2>
+        <p class="q-text">
+            A Treasury bond has a face value of $100 and an annual coupon rate of 4%, paid semi-annually.
+            What is each semi-annual coupon payment?
+        </p>
+        <label class="option">
+            <input type="radio" name="q2" id="q2a">
+            <span>$0.04</span>
+        </label>
+        <label class="option">
+            <input type="radio" name="q2" id="q2b">
+            <span>$2.00</span>
+        </label>
+        <label class="option">
+            <input type="radio" name="q2" id="q2c">
+            <span>$4.00</span>
+        </label>
+        <label class="option">
+            <input type="radio" name="q2" id="q2d">
+            <span>$8.00</span>
+        </label>
+        <button type="button" class="check-btn" onclick="checkAnswer('q2','q2b')">Check answer</button>
+        <div class="feedback"></div>
+    </div>
+
+    <!-- Question 3 -->
+    <div class="question" id="q3"
+         data-correct-msg="Correct. "
+         data-incorrect-msg="Not quite. Try again.">
+        <h2>Question 3</h2>
+        <p class="q-text">
+            Consider a 3-year Treasury note with a 4.0% annual coupon rate (paid semi-annually) and a par value of $100.
+            Which description of the bond&rsquo;s cash flows is correct?
+        </p>
+        <label class="option">
+            <input type="radio" name="q3" id="q3a">
+            <span>Three coupon payments of $4.0 (one at the end of each year) and a separate $100 principal repayment at year 3.</span>
+        </label>
+        <label class="option">
+            <input type="radio" name="q3" id="q3b">
+            <span>Six coupon payments of $2.0 every six months, and on the final coupon date at year 3 the investor also receives the $100 principal, for a total of $102.0 at maturity.</span>
+        </label>
+        <label class="option">
+            <input type="radio" name="q3" id="q3c">
+            <span>Six equal total payments of $2.0, and the $100 principal is repaid one period after the last coupon payment.</span>
+        </label>
+        <label class="option">
+            <input type="radio" name="q3" id="q3d">
+            <span>One coupon payment of $4.0 at year 3 and a $100 principal repayment at year 5.</span>
+        </label>
+        <button type="button" class="check-btn" onclick="checkAnswer('q3','q3b')">Check answer</button>
+        <div class="feedback"></div>
+     </div>
+
+    <!-- Question 4 -->
+    <div class="question" id="q4"
+         data-correct-msg="Correct. "
+         data-incorrect-msg="Not quite. Try again.">
+        <h2>Question 4</h2>
+        <p class="q-text">
+            When is it appropriate to use the annuity formula as a shortcut to price a coupon bond?
+        </p>
+        <label class="option">
+            <input type="radio" name="q4" id="q4a">
+            <span>When coupon payments are identical through time and a single interest rate is used to discount all cash flows.</span>
+        </label>
+        <label class="option">
+            <input type="radio" name="q4" id="q4b">
+            <span>When the coupon rate changes every year but the face value is fixed.</span>
+        </label>
+        <label class="option">
+            <input type="radio" name="q4" id="q4c">
+            <span>Only for bonds with embedded call or put options.</span>
+        </label>
+        <label class="option">
+            <input type="radio" name="q4" id="q4d">
+            <span>Only for semi-annual coupon bonds.</span>
+        </label>
+        <button type="button" class="check-btn" onclick="checkAnswer('q4','q4a')">Check answer</button>
+        <div class="feedback"></div>
+    </div>
+
+    <!-- Question 5 -->
+    <div class="question" id="q5"
+         data-correct-msg="Correct. "
+         data-incorrect-msg="Not quite. Try again.">
+        <h2>Question 5</h2>
+        <p class="q-text">
+            Which of the following best describes a <strong>zero-coupon bond</strong>?
+        </p>
+        <label class="option">
+            <input type="radio" name="q5" id="q5a">
+            <span>A bond that pays no coupons and a single principal cash flow at maturity.</span>
+        </label>
+        <label class="option">
+            <input type="radio" name="q5" id="q5b">
+            <span>A bond that pays small coupons each period and a large coupon at maturity instead of principal.</span>
+        </label>
+        <label class="option">
+            <input type="radio" name="q5" id="q5c">
+            <span>A bond that pays coupons only for the first half of its life and nothing at maturity.</span>
+        </label>
+        <label class="option">
+            <input type="radio" name="q5" id="q5d">
+            <span>A perpetuity that pays coupons forever and never matures.</span>
+        </label>
+        <button type="button" class="check-btn" onclick="checkAnswer('q5','q5a')">Check answer</button>
+        <div class="feedback"></div>
+    </div>
+
+    <!-- Question 6 -->
+    <div class="question" id="q6"
+         data-correct-msg="Correct. "
+         data-incorrect-msg="Not quite. Try again.">
+        <h2>Question 6</h2>
+        <p class="q-text">
+            What does the discount factor D(T) represent?
+        </p>
+        <label class="option">
+            <input type="radio" name="q6" id="q6a">
+            <span>The future value at time T of $1 invested today.</span>
+        </label>
+        <label class="option">
+            <input type="radio" name="q6" id="q6b">
+            <span>The present value today of $1 to be received at time T.</span>
+        </label>
+        <label class="option">
+            <input type="radio" name="q6" id="q6c">
+            <span>The annual coupon rate of the bond.</span>
+        </label>
+        <label class="option">
+            <input type="radio" name="q6" id="q6d">
+            <span>The difference between clean and dirty prices.</span>
+        </label>
+        <button type="button" class="check-btn" onclick="checkAnswer('q6','q6b')">Check answer</button>
+        <div class="feedback"></div>
+    </div>
+
+    <!-- Question 7 -->
+    <div class="question" id="q7"
+         data-correct-msg="Correct. "
+         data-incorrect-msg="Not quite. Try again.">
+        <h2>Question 7</h2>
+        <p class="q-text">
+            Assuming a positive interest-rate environment, which statement about discount factors D(T) is usually true?
+        </p>
+        <label class="option">
+            <input type="radio" name="q7" id="q7a">
+            <span>D(T) is always greater than 1 and increases as T increases.</span>
+        </label>
+        <label class="option">
+            <input type="radio" name="q7" id="q7b">
+            <span>D(T) is always equal to the bond&rsquo;s coupon rate.</span>
+        </label>
+        <label class="option">
+            <input type="radio" name="q7" id="q7c">
+            <span>D(T) is less than or equal to 1 and generally decreases as T increases.</span>
+        </label>
+        <label class="option">
+            <input type="radio" name="q7" id="q7d">
+            <span>D(T) must be exactly zero for all positive T.</span>
+        </label>
+        <button type="button" class="check-btn" onclick="checkAnswer('q7','q7c')">Check answer</button>
+        <div class="feedback"></div>
+    </div>
+
+    <!-- Question 8 -->
+    <div class="question" id="q8"
+         data-correct-msg="Correct. "
+         data-incorrect-msg="Not quite. Try again.">
+        <h2>Question 8</h2>
+        <p class="q-text">
+            How is a Treasury bond conceptually related to zero-coupon bonds?
+        </p>
+        <label class="option">
+            <input type="radio" name="q8" id="q8a">
+            <span>It is equivalent to a single zero-coupon bond maturing on the first coupon date.</span>
+        </label>
+        <label class="option">
+            <input type="radio" name="q8" id="q8b">
+            <span>It is a bundle (portfolio) of zero-coupon bonds with different maturities, one for each cash flow.</span>
+        </label>
+        <label class="option">
+            <input type="radio" name="q8" id="q8c">
+            <span>It has no relationship to zero-coupon bonds.</span>
+        </label>
+        <label class="option">
+            <input type="radio" name="q8" id="q8d">
+            <span>It is identical to a perpetuity plus a zero-coupon bond.</span>
+        </label>
+        <button type="button" class="check-btn" onclick="checkAnswer('q8','q8b')">Check answer</button>
+        <div class="feedback"></div>
+    </div>
+
+    <!-- Question 9 -->
+    <div class="question" id="q9"
+         data-correct-msg="Correct. "
+         data-incorrect-msg="Not quite. Try again.">
+        <h2>Question 9</h2>
+        <p class="q-text">
+            To price a coupon bond using discount factors D(T), what should you do with the bond&apos;s cash flows?
+        </p>
+        <label class="option">
+            <input type="radio" name="q9" id="q9a">
+            <span>Discount only the final principal payment and ignore the coupon cash flows.</span>
+        </label>
+        <label class="option">
+            <input type="radio" name="q9" id="q9b">
+            <span>Multiply each cash flow at time T by the corresponding D(T) and sum the results.</span>
+        </label>
+        <label class="option">
+            <input type="radio" name="q9" id="q9c">
+            <span>Multiply all cash flows by a single discount factor, regardless of their timing.</span>
+        </label>
+        <label class="option">
+            <input type="radio" name="q9" id="q9d">
+            <span>Average the discount factors and multiply by the bond&rsquo;s face value only.</span>
+        </label>
+        <button type="button" class="check-btn" onclick="checkAnswer('q9','q9b')">Check answer</button>
+        <div class="feedback"></div>
+    </div>
+
+    <!-- Question 10 -->
+    <div class="question" id="q10"
+         data-correct-msg="Correct. "
+         data-incorrect-msg="Not quite. Try again.">
+        <h2>Question 10</h2>
+        <p class="q-text">
+            Suppose you observe the full set of discount factors D(T) for all maturities up to 30 years,
+            where each D(T) is the price today of a $1 zero-coupon bond maturing at time T. Ignoring
+            credit risk, what additional interest-rate information is required to compute the
+            <em>arbitrage-free</em> price of any fixed-coupon Treasury bond with maturity at or below 30 years?
+        </p>
+        <label class="option">
+            <input type="radio" name="q10" id="q10a">
+            <span>You must also assume a yield-to-maturity specific to that bond.</span>
+        </label>
+        <label class="option">
+            <input type="radio" name="q10" id="q10b">
+            <span>No further term-structure information is needed; the discount factors and the bond&rsquo;s cash-flow schedule are sufficient.</span>
+        </label>
+        <label class="option">
+            <input type="radio" name="q10" id="q10c">
+            <span>You must know the future reinvestment rate for each coupon payment.</span>
+        </label>
+        <label class="option">
+            <input type="radio" name="q10" id="q10d">
+            <span>You must know the credit spread term structure, even for default-free Treasuries.</span>
+        </label>
+        <button type="button" class="check-btn" onclick="checkAnswer('q10','q10b')">Check answer</button>
+        <div class="feedback"></div>
+    </div>
+
+    <div class="reset-container">
+        <button type="button" class="reset-btn" onclick="resetQuiz()">Reset quiz</button>
+    </div>
+</div>
+
+<script>
+    function checkAnswer(questionId, correctOptionId) {
+        const question = document.getElementById(questionId);
+        const selected = question.querySelector('input[type="radio"]:checked');
+        const feedbackElem = question.querySelector('.feedback');
+        const optionLabels = question.querySelectorAll('.option');
+
+        // Clear previous visual state
+        optionLabels.forEach(label => {
+            label.classList.remove('correct', 'incorrect', 'selected');
+        });
+
+        if (!selected) {
+            feedbackElem.textContent = 'Please select an answer first.';
+            feedbackElem.className = 'feedback neutral';
+            return;
+        }
+
+        const correctInput = document.getElementById(correctOptionId);
+
+        if (selected === correctInput) {
+            feedbackElem.textContent = question.dataset.correctMsg || 'Correct!';
+            feedbackElem.className = 'feedback correct';
+            selected.parentElement.classList.add('correct', 'selected');
+        } else {
+            feedbackElem.textContent = question.dataset.incorrectMsg || 'Not quite. Review the slides and try again.';
+            feedbackElem.className = 'feedback incorrect';
+            selected.parentElement.classList.add('incorrect', 'selected');
+
+            if (correctInput) {
+                correctInput.parentElement.classList.add('correct');
+            }
+        }
+    }
+
+    function resetQuiz() {
+        const questions = document.querySelectorAll('.question');
+
+        questions.forEach(question => {
+            const inputs = question.querySelectorAll('input[type="radio"]');
+            const feedbackElem = question.querySelector('.feedback');
+            const optionLabels = question.querySelectorAll('.option');
+
+            inputs.forEach(input => {
+                input.checked = false;
+            });
+
+            optionLabels.forEach(label => {
+                label.classList.remove('correct', 'incorrect', 'selected');
+            });
+
+            feedbackElem.textContent = '';
+            feedbackElem.className = 'feedback';
+        });
+    }
+</script>
+</body>
+</html>

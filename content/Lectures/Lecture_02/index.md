@@ -3,33 +3,16 @@ title: "Lecture 02"
 weight: 2
 ---
 
-<!-- Video 1 -->
-<div style="
-  position: relative; width: 100%; display: flex; justify-content: center;
-  padding: 2rem 0;        /* vertical space above/below the video */
-">
-  <div style="
-    position: relative; width: 50%;            /* how wide the video box should be */
-    padding-bottom: 28.125%; /* 16:9 ratio: 50% * 9/16 = 28.125% */
-  ">
-    <iframe
-      src="https://www.youtube.com/embed/ftYVCY6QpRw"
-      style="
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;       /* 100% of the parent box */
-        height: 100%;      /* maintain 16:9 inside parent */
-        border: none;
-      "
-      allowfullscreen
-    ></iframe>
-  </div>
-</div>
 
 
-## Lectures
+## Lecture Materials
 
-- [Lecture 1 Slides](../../lecture-slides/Lecture-01.html)
-- [Colab Notebook](https://colab.research.google.com/drive/1gkUS2lEbgIAKWLnPz6yKOxopbJXidsOr?usp=sharing)
-- [SIFMA Data](../../data/SIFMA-CMFactBook-2025-DataTablesWebsite.xlsx)
+- [Lecture 2 Slides](../../lecture-slides/Lecture-02.html)
+- [Lecture 2 Quiz](../../quizzes/Lecture_02_Quiz.html)
+
+
+## Miscellaneous
+
+<!--
+{{< video src="../../videos/TreasuryAuctionClip.mp4" poster="../../videos/TreasuryAuctionClip_Thumbnail.jpeg" title="Testing Investor Appetite for Treasuries">}}
+-->
