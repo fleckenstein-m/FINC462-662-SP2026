@@ -1,14 +1,14 @@
 publishDir = "docs"
 baseURL = "https://fleckenstein-m.github.io/FINC462-662-SP2026"
 languageCode = 'en-us'
-title = 'FINC462/662 - Fixed Income Securities'
+title = 'FINC409/609 - Fixed Income Securities'
 theme = 'hugo-theme-relearn'
 [params]
   themeVariant = 'neon'
   alwaysopen = false
-  linkTitle = 'FINC462/662'
+  linkTitle = 'FINC409/609'
   collapsibleMenu = true
-  courseTitle = "FINC462/662 - Fixed Income Securities"
+  courseTitle = "FINC409/609 - Fixed Income Securities"
   courseTerm  = "Spring 2026"
   instructor  = "Prof. Matt Fleckenstein"
   custom_css = ["css/custom.css"]
