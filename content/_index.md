@@ -46,7 +46,7 @@ After completing this course, students will be able to:
 | Section     | FINC 409/609      |
 | :-------    | :---------------- |
 | Day(s)      | Tuesdays          |
-| Time        | 5.00pm-6.00pm     |
+| Time        | 4.00pm-5.30pm     |
 | Location    | 310 Purnell Hall  |
 
 
