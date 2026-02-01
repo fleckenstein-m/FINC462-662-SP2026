@@ -36,9 +36,9 @@ After completing this course, students will be able to:
 |             | FINC 409/609                   |
 | :-------    | :------------------------------|
 | Day(s)      | Tue, Thu                       |
-| Time        | Section 011: 9.35am-10.55am    |
-|             | Section 010: 11.10am-12.30pm   |    
-| Location    | Gore Hall Hall 219             |
+| Time        | Section 010: 9.35am-10.55am    |
+|             | Section 011: 11.10am-12.30pm   |    
+| Location    | Gore Hall 219             |
 
 
 ## Office Hours
@@ -48,6 +48,27 @@ After completing this course, students will be able to:
 | Day(s)      | Tuesdays          |
 | Time        | 5.00pm-6.00pm     |
 | Location    | 310 Purnell Hall  |
+
+
+## Exam Schedule
+
+1. Midterm 1
+  - Date: *March 12, 2026*
+  - Time: 9.35am-10.55am (Section 010); 11.10am-12.30pm (Section 011)
+  - Location: Gore Hall Hall 219
+2. Midterm 2
+  - Date: *April 14, 2026*
+  - Time: 9.35am-10.55am (Section 010); 11.10am-12.30pm (Section 011)
+  - Location: Gore Hall Hall 219
+3. Final Exam
+  - Section 010:
+    - Date: *May 19, 2026*
+    - Time: 8.00am-10.00am
+    - Location: Gore Hall 219
+  - Section 011:
+    - Date: *May 16, 2026*
+    - Time: 11.30am-1.30pm
+    - Location: Gore Hall 219
 
 
 ## Course Syllabus
