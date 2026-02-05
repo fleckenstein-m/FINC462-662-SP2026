@@ -1,0 +1,14 @@
+---
+title: "Calendar"
+chapter: true
+weight: 1
+---
+
+## Course Calendar
+
+| Date           | Day          | Lecture                                                                      | Assignment Due      | 
+| :---------     | :-------     | :-------------------------------------------------                           | :------------------ |
+| 2026-02-03     | Tuesday      | Lecture 01 (Introduction to Fixed Income Markets)                            | ---                 |
+| 2026-02-05     | Thursday     | Lecture 02 (The U.S. Treasury Market)                                        | ---                 |
+|                                                                                                                                    |
+| 2026-02-10     | Tuesday      | Lecture 03 (Price-Quoting Conventions in the U.S. Treasury Market)           | **Assignment 01**   |

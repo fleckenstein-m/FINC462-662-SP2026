@@ -1,7 +1,7 @@
 ---
 title: "Assignments"
 chapter: true
-weight: 2
+weight: 3
 ---
 
 
