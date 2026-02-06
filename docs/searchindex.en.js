@@ -9,8 +9,8 @@ var relearn_searchindex = [
   },
   {
     "breadcrumb": "FINC409/609 - Fixed Income Securities",
-    "content": "Tentative Course Schedule\rDate Day Lecture Assignment Due 2026-02-03 Tuesday Lecture 01 (Introduction to Fixed Income Markets) $-$ 2026-02-05 Thursday Lecture 02 (The U.S. Treasury Market) $-$ 2026-02-10 Tuesday Lecture 03 (Price-Quoting Conventions in the U.S. Treasury Market) Assignment 01",
-    "description": "Tentative Course Schedule\rDate Day Lecture Assignment Due 2026-02-03 Tuesday Lecture 01 (Introduction to Fixed Income Markets) $-$ 2026-02-05 Thursday Lecture 02 (The U.S. Treasury Market) $-$ 2026-02-10 Tuesday Lecture 03 (Price-Quoting Conventions in the U.S. Treasury Market) Assignment 01",
+    "content": "Course Calendar\rDate Day Lecture Assignment Due 2026-02-03 Tuesday Lecture 01 (Introduction to Fixed Income Markets) — 2026-02-05 Thursday Lecture 02 (The U.S. Treasury Market) — 2026-02-10 Tuesday Lecture 03 (Price-Quoting Conventions in the U.S. Treasury Market) Assignment 01",
+    "description": "Course Calendar\rDate Day Lecture Assignment Due 2026-02-03 Tuesday Lecture 01 (Introduction to Fixed Income Markets) — 2026-02-05 Thursday Lecture 02 (The U.S. Treasury Market) — 2026-02-10 Tuesday Lecture 03 (Price-Quoting Conventions in the U.S. Treasury Market) Assignment 01",
     "tags": [],
     "title": "Calendar",
     "uri": "/FINC462-662-SP2026/calendar/index.html"
@@ -49,8 +49,8 @@ var relearn_searchindex = [
   },
   {
     "breadcrumb": "FINC409/609 - Fixed Income Securities",
-    "content": "",
-    "description": "",
+    "content": "Geltzeiler Trading Center (Purnell Hall 114)\nThis table shows the days/times when no classes are scheduled in the Geltzeiler Trading Center (Purnell Hall 114). Please note that the Trading Center may be unavailable when events are scheduled on short notice.\nMonday Tuesday Wednesday Thursday Friday 11:30 AM – 2:00 PM 11:00 AM – 6:00 PM 11:30 AM – 1:00 PM 11:00 AM – 5:30 PM 11:30 AM – 2:00 PM 4:00 PM – 5:30 PM 4:00 PM – 5:30 PM 4:00 PM – 5:00 PM 6:00 PM – 9:00 PM",
+    "description": "Geltzeiler Trading Center (Purnell Hall 114)\nThis table shows the days/times when no classes are scheduled in the Geltzeiler Trading Center (Purnell Hall 114). Please note that the Trading Center may be unavailable when events are scheduled on short notice.\nMonday Tuesday Wednesday Thursday Friday 11:30 AM – 2:00 PM 11:00 AM – 6:00 PM 11:30 AM – 1:00 PM 11:00 AM – 5:30 PM 11:30 AM – 2:00 PM 4:00 PM – 5:30 PM 4:00 PM – 5:30 PM 4:00 PM – 5:00 PM 6:00 PM – 9:00 PM",
     "tags": [],
     "title": "Assignments",
     "uri": "/FINC462-662-SP2026/assignments/index.html"
