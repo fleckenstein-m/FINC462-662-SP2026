@@ -57,11 +57,19 @@ var relearn_searchindex = [
   },
   {
     "breadcrumb": "FINC409/609 - Fixed Income Securities \u003e Lectures",
-    "content": "Lecture Materials\rLecture 3 Slides Lecture 3 Quiz Miscellaneous\rPractice Problems Practice Problem Excel",
-    "description": "Lecture Materials\rLecture 3 Slides Lecture 3 Quiz Miscellaneous\rPractice Problems Practice Problem Excel",
+    "content": "Lecture Materials\rLecture 3 Slides Lecture 3 Quiz Lecture 3 Summary Miscellaneous\rPractice Problems Practice Problem Excel",
+    "description": "Lecture Materials\rLecture 3 Slides Lecture 3 Quiz Lecture 3 Summary Miscellaneous\rPractice Problems Practice Problem Excel",
     "tags": [],
     "title": "Lecture 03",
     "uri": "/FINC462-662-SP2026/lectures/lecture_03/index.html"
+  },
+  {
+    "breadcrumb": "FINC409/609 - Fixed Income Securities \u003e Lectures",
+    "content": "Lecture Materials\rLecture 4 Slides Lecture 4 Quiz Miscellaneous\rPractice Problem Excel",
+    "description": "Lecture Materials\rLecture 4 Slides Lecture 4 Quiz Miscellaneous\rPractice Problem Excel",
+    "tags": [],
+    "title": "Lecture 04",
+    "uri": "/FINC462-662-SP2026/lectures/lecture_04/index.html"
   },
   {
     "breadcrumb": "FINC409/609 - Fixed Income Securities",

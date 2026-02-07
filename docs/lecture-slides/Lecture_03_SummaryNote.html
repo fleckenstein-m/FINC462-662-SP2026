@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lecture 3 Summary: Price-Quoting Conventions in the U.S. Treasury Market</title>
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    displayMath: [['\\[','\\]']]
+  }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<style>
+  /* ── Reset & base ── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #1e293b;
+    background: #f1f5f9;
+    padding: 2rem 1rem;
+  }
+
+  .container {
+    max-width: 850px;
+    margin: 0 auto;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 24px rgba(0,0,0,.08);
+    overflow: hidden;
+  }
+
+  /* ── Header ── */
+  header {
+    background: linear-gradient(135deg, #1e3a5f 0%, #16304d 100%);
+    color: #ffffff;
+    padding: 2.2rem 2.5rem 1.8rem;
+  }
+  header .course-tag {
+    display: inline-block;
+    font-size: .82rem;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    background: rgba(255,255,255,.15);
+    padding: .25rem .7rem;
+    border-radius: 4px;
+    margin-bottom: .8rem;
+  }
+  header h1 {
+    font-size: 1.55rem;
+    font-weight: 700;
+    line-height: 1.35;
+    margin-bottom: .5rem;
+  }
+  header .meta {
+    font-size: .88rem;
+    opacity: .82;
+  }
+
+  /* ── Main content ── */
+  main { padding: 2rem 2.5rem 2.5rem; }
+
+  h2 {
+    font-size: 1.35rem;
+    color: #1e3a5f;
+    border-bottom: 3px solid #2563eb;
+    padding-bottom: .35rem;
+    margin: 2.2rem 0 1rem;
+  }
+  h2:first-child { margin-top: 0; }
+
+  h3 {
+    font-size: 1.1rem;
+    color: #334155;
+    margin: 1.6rem 0 .6rem;
+  }
+
+  p { margin-bottom: .85rem; }
+
+  /* ── Boxes ── */
+  .box {
+    border-radius: 8px;
+    padding: 1rem 1.25rem;
+    margin: 1rem 0;
+  }
+
+  .formula-box {
+    background: #eff6ff;
+    border-left: 4px solid #2563eb;
+  }
+
+  .example-box {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-left: 4px solid #64748b;
+  }
+
+  .result-box {
+    background: #f0fdf4;
+    border-left: 4px solid #16a34a;
+  }
+
+  .convention-box {
+    background: #fffbeb;
+    border-left: 4px solid #d97706;
+    font-size: .93rem;
+  }
+
+  .info-card {
+    background: #f0f4ff;
+    border: 1px solid #c7d2fe;
+    border-radius: 8px;
+    padding: 1.1rem 1.4rem;
+    margin: 1rem 0;
+  }
+  .info-card .card-title {
+    font-weight: 700;
+    color: #1e3a5f;
+    margin-bottom: .5rem;
+    font-size: 1.02rem;
+  }
+  .info-card ul {
+    list-style: none;
+    padding: 0;
+  }
+  .info-card li {
+    padding: .18rem 0;
+    padding-left: 1.1rem;
+    position: relative;
+  }
+  .info-card li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #2563eb;
+    font-weight: 700;
+  }
+
+  .key-concept {
+    background: #faf5ff;
+    border: 2px solid #a78bfa;
+    border-radius: 8px;
+    padding: 1rem 1.25rem;
+    margin: 1.2rem 0;
+    text-align: center;
+    font-size: 1.08rem;
+  }
+
+  /* ── Tables ── */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: .8rem 0;
+    font-size: .93rem;
+  }
+  th, td {
+    padding: .5rem .75rem;
+    border: 1px solid #e2e8f0;
+    text-align: center;
+  }
+  th {
+    background: #1e3a5f;
+    color: #fff;
+    font-weight: 600;
+  }
+  tbody tr:nth-child(even) { background: #f8fafc; }
+  tbody tr:nth-child(odd)  { background: #ffffff; }
+
+  .summary-table td:first-child { text-align: left; font-weight: 500; }
+  .summary-table td:last-child  { text-align: right; }
+  .summary-table tr:last-child  { font-weight: 700; background: #f0fdf4; }
+
+  /* ── Timeline ── */
+  .timeline-wrap {
+    margin: 1.5rem 0;
+    padding: .5rem 0;
+  }
+  .timeline {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 0 10px;
+    height: 100px;
+  }
+  .timeline .line {
+    position: absolute;
+    top: 36px;
+    left: 10px;
+    right: 10px;
+    height: 3px;
+    background: #2563eb;
+  }
+  .timeline .marker {
+    position: relative;
+    text-align: center;
+    z-index: 1;
+    flex: 0 0 auto;
+  }
+  .timeline .marker .dot {
+    width: 14px;
+    height: 14px;
+    background: #2563eb;
+    border: 3px solid #fff;
+    box-shadow: 0 0 0 2px #2563eb;
+    border-radius: 50%;
+    margin: 30px auto 0;
+  }
+  .timeline .marker .label-top {
+    font-weight: 700;
+    font-size: .88rem;
+    color: #1e3a5f;
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    margin-bottom: -20px;
+  }
+  .timeline .marker .label-bot {
+    font-size: .8rem;
+    color: #64748b;
+    margin-top: .35rem;
+    white-space: nowrap;
+  }
+  .timeline .span-label {
+    position: absolute;
+    top: 48px;
+    font-size: .82rem;
+    font-weight: 600;
+    color: #2563eb;
+  }
+  .timeline .span-left  { left: 18%; }
+  .timeline .span-right { right: 18%; }
+  .timeline .span-full {
+    left: 50%;
+    transform: translateX(-50%);
+    top: 70px;
+    font-size: .82rem;
+    color: #64748b;
+    white-space: nowrap;
+  }
+
+  /* ── Quote anatomy ── */
+  .quote-anatomy {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    font-family: "Courier New", monospace;
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 1rem 0;
+    color: #1e3a5f;
+  }
+  .quote-anatomy .seg {
+    padding: .15rem .35rem;
+    border-radius: 4px;
+    position: relative;
+  }
+  .quote-anatomy .seg .ann {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+    font-size: .72rem;
+    font-weight: 600;
+    white-space: nowrap;
+    margin-top: 2px;
+  }
+  .seg-pts  { background: #dbeafe; }
+  .seg-pts .ann { color: #2563eb; }
+  .seg-dash { background: none; font-size: 1.6rem; color: #94a3b8; }
+  .seg-ticks { background: #fef3c7; }
+  .seg-ticks .ann { color: #b45309; }
+  .seg-sub  { background: #ede9fe; }
+  .seg-sub .ann { color: #7c3aed; }
+
+  /* ── Misc ── */
+  .step { margin-bottom: .6rem; }
+  .step-num {
+    display: inline-block;
+    background: #2563eb;
+    color: #fff;
+    font-weight: 700;
+    font-size: .78rem;
+    width: 1.4rem;
+    height: 1.4rem;
+    line-height: 1.4rem;
+    text-align: center;
+    border-radius: 50%;
+    margin-right: .4rem;
+  }
+
+  hr {
+    border: none;
+    border-top: 2px solid #e2e8f0;
+    margin: 2.2rem 0;
+  }
+
+  strong { color: #0f172a; }
+
+  .text-sm { font-size: .9rem; }
+
+  /* ── Print ── */
+  @media print {
+    body { background: #fff; padding: 0; font-size: 11pt; }
+    .container { box-shadow: none; border-radius: 0; }
+    header { background: #1e3a5f !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .box, .info-card, .key-concept { break-inside: avoid; }
+    table { break-inside: avoid; }
+    th { background: #1e3a5f !important; color: #fff !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    tbody tr:nth-child(even) { background: #f8fafc !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- ═══════════════ HEADER ═══════════════ -->
+<header>
+  <div class="course-tag">FINC 409 / 609 — Fixed Income Securities</div>
+  <h1>Lecture 3 Summary:<br>Price-Quoting Conventions in the U.S. Treasury Market</h1>
+  <div class="meta">Prof. Matt Fleckenstein &nbsp;·&nbsp; University of Delaware &nbsp;·&nbsp; Spring 2026</div>
+</header>
+
+<main>
+
+<!-- ═══════════════ SECTION 1 ═══════════════ -->
+<h2>1 &nbsp; Treasury Bills</h2>
+
+<p>
+  Treasury bills (T-bills) are <strong>zero-coupon</strong> instruments — they pay no periodic interest.
+  Instead, they are issued at a discount and redeemed at par.
+  In the secondary market T-bills are quoted as a <strong>discount yield</strong> \(y_d\).
+</p>
+
+<div class="box formula-box">
+  \[
+    P \;=\; 100 \;\times\;\Bigl(1 \;-\; y_d \;\times\; \frac{\text{Days to Maturity}}{360}\Bigr)
+  \]
+</div>
+
+<div class="box convention-box">
+  <strong>Day-Count Convention:</strong> &nbsp;T-bill discount yields use <strong>actual / 360</strong> — the numerator counts actual calendar days, and the year is assumed to have 360 days.
+</div>
+
+<h3>Worked Example</h3>
+
+<div class="box example-box">
+  <p>
+    <strong>Security:</strong> 26-week T-bill maturing <strong>August 6, 2026</strong><br>
+    <strong>Trade date:</strong> February 5, 2026 &nbsp;→&nbsp; <strong>Settlement date:</strong> February 6, 2026 (T + 1)<br>
+    <strong>Discount yield:</strong> \(y_d = 4.210\%\)
+  </p>
+
+  <p style="margin-top:.7rem"><strong>Step 1 — Count actual days from settlement to maturity</strong></p>
+
+  <table>
+    <thead>
+      <tr><th>Period</th><th>Days</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Feb 6 → Feb 28</td><td>22</td></tr>
+      <tr><td>March</td><td>31</td></tr>
+      <tr><td>April</td><td>30</td></tr>
+      <tr><td>May</td><td>31</td></tr>
+      <tr><td>June</td><td>30</td></tr>
+      <tr><td>July</td><td>31</td></tr>
+      <tr><td>Aug 1 → Aug 6</td><td>6</td></tr>
+      <tr style="font-weight:700; background:#e0f2fe !important;"><td><strong>Total</strong></td><td><strong>181</strong></td></tr>
+    </tbody>
+  </table>
+
+  <p style="margin-top:.7rem"><strong>Step 2 — Compute the price</strong></p>
+
+  <p>
+    \[
+      P = 100 \times \Bigl(1 - 0.04210 \times \frac{181}{360}\Bigr)
+        = 100 \times \bigl(1 - 0.02116\bigr)
+        = \$97.8833
+    \]
+  </p>
+</div>
+
+<div class="box result-box">
+  <strong>Result:</strong> &nbsp;Pay <strong>$97.8833</strong> today (per $100 face value) and receive <strong>$100</strong> at maturity on August 6, 2026.
+</div>
+
+<hr>
+
+<!-- ═══════════════ SECTION 2 ═══════════════ -->
+<h2>2 &nbsp; Treasury Notes and Bonds</h2>
+
+<div class="info-card">
+  <div class="card-title">Reference Note Used Throughout This Section</div>
+  <ul>
+    <li><strong>Coupon:</strong> 4.000% (semi-annual; pays May 15 and Nov 15)</li>
+    <li><strong>Issued:</strong> November 17, 2025</li>
+    <li><strong>Maturity:</strong> November 15, 2030</li>
+    <li><strong>Par value:</strong> $100</li>
+  </ul>
+</div>
+
+<!-- ── Part A ── -->
+<h3>Part A — Price Quotes and Clean Prices</h3>
+
+<p>
+  Treasury note and bond prices are quoted in <strong>points</strong> (dollars) and
+  <strong>32nds</strong> of a point.
+  A quote of <em>102-25</em> means 102 points plus 25/32nds.
+  For additional precision, sub-32nd increments are used:
+</p>
+
+<ul style="margin:.6rem 0 1rem 1.5rem;">
+  <li>A trailing "<strong>+</strong>" adds <strong>1/64</strong> of a point (i.e., half a 32nd).</li>
+  <li>A trailing fraction (e.g., <strong>3/4</strong>) represents fractional 32nds — so <em>10 3/4</em> means \(\tfrac{10.75}{32}\).</li>
+</ul>
+
+<p>The <strong>clean price</strong> (or <em>flat price</em>) is the dollar price per $100 par obtained by converting the quote.</p>
+
+<!-- Quote anatomy diagram -->
+<div style="text-align:center; margin:1.4rem 0 2.4rem;">
+  <div style="font-size:.88rem; color:#64748b; margin-bottom:.4rem; font-weight:600;">Anatomy of a Treasury Quote</div>
+  <div class="quote-anatomy">
+    <span class="seg seg-pts">102<span class="ann">Points ($)</span></span>
+    <span class="seg seg-dash">-</span>
+    <span class="seg seg-ticks">25<span class="ann">Ticks (32nds)</span></span>
+    <span class="seg seg-sub">+<span class="ann">Sub-tick (1/64)</span></span>
+  </div>
+</div>
+
+<!-- Example A -->
+<h3>Example A</h3>
+<div class="box example-box">
+  <p>
+    <strong>Trade date:</strong> February 10, 2026 &nbsp;→&nbsp; <strong>Settlement:</strong> February 11, 2026<br>
+    <strong>Quote:</strong> 102-25+
+  </p>
+  <p style="margin-top:.5rem">
+    Clean Price \(= 102 + \dfrac{25}{32} + \dfrac{1}{64}
+    = 102 + 0.78125 + 0.015625 = \$102.7969\)
+  </p>
+</div>
+
+<!-- Example B -->
+<h3>Example B</h3>
+<div class="box example-box">
+  <p>
+    <strong>Trade date:</strong> September 15, 2026 &nbsp;→&nbsp; <strong>Settlement:</strong> September 16, 2026<br>
+    <strong>Quote:</strong> 101-10 3/4
+  </p>
+  <p style="margin-top:.5rem">
+    Clean Price \(= 101 + \dfrac{10.75}{32}
+    = 101 + 0.335938 = \$101.3359\)
+  </p>
+</div>
+
+<!-- ── Part B ── -->
+<h3>Part B — Accrued Interest and the Dirty Price</h3>
+
+<p>
+  Between coupon dates the buyer must compensate the seller for interest that has
+  accumulated since the last coupon payment.
+  This compensation is called <strong>accrued interest</strong>.
+</p>
+
+<div class="key-concept">
+  <strong>Dirty Price</strong> &nbsp;=&nbsp; <strong>Clean Price</strong> &nbsp;+&nbsp; <strong>Accrued Interest</strong>
+</div>
+
+<p>
+  The <strong>dirty price</strong> (or <em>full price, invoice price</em>) is the actual dollar amount the buyer pays the seller.
+</p>
+
+<h3>Calculating Accrued Interest &amp; the Dirty Price — Example A Continued</h3>
+
+<div class="box example-box">
+<p>
+  <strong>Settlement:</strong> February 11, 2026<br>
+  <strong>Previous coupon:</strong> November 15, 2025 &nbsp;|&nbsp; <strong>Next coupon:</strong> May 15, 2026
+</p>
+
+<!-- ── CSS Timeline ── -->
+<div class="timeline-wrap">
+  <div class="timeline">
+    <div class="line"></div>
+    <!-- Left marker -->
+    <div class="marker" style="flex:0 0 auto;">
+      <div class="label-top">Nov 15, 2025</div>
+      <div class="dot"></div>
+      <div class="label-bot">Prev Coupon</div>
+    </div>
+    <!-- Middle marker -->
+    <div class="marker" style="flex:0 0 auto;">
+      <div class="label-top">Feb 11, 2026</div>
+      <div class="dot" style="background:#16a34a; box-shadow:0 0 0 2px #16a34a;"></div>
+      <div class="label-bot">Settlement</div>
+    </div>
+    <!-- Right marker -->
+    <div class="marker" style="flex:0 0 auto;">
+      <div class="label-top">May 15, 2026</div>
+      <div class="dot"></div>
+      <div class="label-bot">Next Coupon</div>
+    </div>
+    <!-- Span labels -->
+    <span class="span-label span-left">88 days</span>
+    <span class="span-label span-right">93 days</span>
+    <span class="span-label span-full">&#8592;&nbsp; 181 days (full coupon period) &nbsp;&#8594;</span>
+  </div>
+</div>
+</div>
+
+<div class="box convention-box">
+  <strong>Day-Count Convention:</strong> &nbsp;Treasury notes and bonds use <strong>actual / actual</strong> — both the numerator (accrued days) and the denominator (coupon-period days) count actual calendar days.
+</div>
+
+<!-- Step 1 -->
+<div class="step">
+  <span class="step-num">1</span>
+  <strong>Days in accrued-interest period</strong> (Nov 15 incl. → Feb 11 excl.)
+</div>
+
+<table>
+  <thead>
+    <tr><th>Period</th><th>Days</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Nov 15 – Nov 30</td><td>16</td></tr>
+    <tr><td>Dec 1 – Dec 31</td><td>31</td></tr>
+    <tr><td>Jan 1 – Jan 31</td><td>31</td></tr>
+    <tr><td>Feb 1 – Feb 10</td><td>10</td></tr>
+    <tr style="font-weight:700; background:#e0f2fe !important;"><td><strong>Accrued Days</strong></td><td><strong>88</strong></td></tr>
+  </tbody>
+</table>
+
+<p class="text-sm" style="margin-top:.3rem; color:#64748b;">
+  Nov 15 is the last coupon date. We count from Nov 15 (inclusive) to Feb 11 (exclusive), which gives 16 + 31 + 31 + 10 = <strong>88 days</strong>. That is, we count Nov 15, 16, …, Nov 30 (16 days), all of December (31), all of January (31), and Feb 1 through Feb 10 (10 days).
+</p>
+
+<!-- Step 2 -->
+<div class="step" style="margin-top:1rem;">
+  <span class="step-num">2</span>
+  <strong>Days in the full coupon period</strong> (Nov 15, 2025 → May 15, 2026) = <strong>181 days</strong>
+</div>
+
+<!-- Step 3 -->
+<div class="step">
+  <span class="step-num">3</span>
+  <strong>Semi-annual coupon payment</strong>
+</div>
+<p>
+  \[
+    \text{Coupon} = \frac{4\%}{2} \times \$100 = \$2.00
+  \]
+</p>
+
+<!-- Step 4 -->
+<div class="step">
+  <span class="step-num">4</span>
+  <strong>Accrued Interest</strong>
+</div>
+<p>
+  \[
+    \text{AI} = \$2.00 \times \frac{88}{181} = \$0.9724
+  \]
+</p>
+
+<!-- Step 5 -->
+<div class="step">
+  <span class="step-num">5</span>
+  <strong>Dirty Price</strong>
+</div>
+<p>
+  \[
+    \text{Dirty Price} = \$102.7969 + \$0.9724 = \$103.7693
+  \]
+</p>
+
+<!-- Result table -->
+<div class="box result-box" style="margin-top:1.2rem;">
+  <table class="summary-table" style="margin:0;">
+    <tbody>
+      <tr>
+        <td>Clean Price &nbsp;(from quote 102-25+)</td>
+        <td>$102.7969</td>
+      </tr>
+      <tr>
+        <td>+ Accrued Interest &nbsp;(88 / 181 × $2.00)</td>
+        <td>$0.9724</td>
+      </tr>
+      <tr>
+        <td>= Dirty Price &nbsp;(what the buyer pays)</td>
+        <td><strong>$103.7693</strong></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+</main>
+</div>
+</body>
+</html>
