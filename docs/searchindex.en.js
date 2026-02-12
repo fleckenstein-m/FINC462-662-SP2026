@@ -9,8 +9,8 @@ var relearn_searchindex = [
   },
   {
     "breadcrumb": "FINC409/609 - Fixed Income Securities",
-    "content": "Course Calendar\rDate Day Lecture Assignment Due 2026-02-03 Tuesday Lecture 01 (Introduction to Fixed Income Markets) — 2026-02-05 Thursday Lecture 02 (The U.S. Treasury Market) — 2026-02-10 Tuesday Lecture 03 (Price-Quoting Conventions in the U.S. Treasury Market) Assignment 01",
-    "description": "Course Calendar\rDate Day Lecture Assignment Due 2026-02-03 Tuesday Lecture 01 (Introduction to Fixed Income Markets) — 2026-02-05 Thursday Lecture 02 (The U.S. Treasury Market) — 2026-02-10 Tuesday Lecture 03 (Price-Quoting Conventions in the U.S. Treasury Market) Assignment 01",
+    "content": "Course Calendar\rDate Day Lecture Assignment Due 2026-02-03 Tuesday Lecture 01 (Introduction to Fixed Income Markets) — 2026-02-05 Thursday Lecture 02 (The U.S. Treasury Market) — 2026-02-10 Tuesday Lecture 03a (Price-Quoting Conventions in the U.S. Treasury Market) Assignment 01 2026-02-12 Thursday Lecture 03b (Price-Quoting Conventions in the U.S. Treasury Market)",
+    "description": "Course Calendar\rDate Day Lecture Assignment Due 2026-02-03 Tuesday Lecture 01 (Introduction to Fixed Income Markets) — 2026-02-05 Thursday Lecture 02 (The U.S. Treasury Market) — 2026-02-10 Tuesday Lecture 03a (Price-Quoting Conventions in the U.S. Treasury Market) Assignment 01 2026-02-12 Thursday Lecture 03b (Price-Quoting Conventions in the U.S. Treasury Market)",
     "tags": [],
     "title": "Calendar",
     "uri": "/FINC462-662-SP2026/calendar/index.html"
