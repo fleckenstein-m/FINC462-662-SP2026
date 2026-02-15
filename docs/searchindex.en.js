@@ -72,6 +72,14 @@ var relearn_searchindex = [
     "uri": "/FINC462-662-SP2026/lectures/lecture_04/index.html"
   },
   {
+    "breadcrumb": "FINC409/609 - Fixed Income Securities \u003e Lectures",
+    "content": "Lecture Materials\rLecture 5 Slides Valuing Bonds between Coupon Dates Lecture 5 Quiz Miscellaneous\rPractice Problem Excel",
+    "description": "Lecture Materials\rLecture 5 Slides Valuing Bonds between Coupon Dates Lecture 5 Quiz Miscellaneous\rPractice Problem Excel",
+    "tags": [],
+    "title": "Lecture 05",
+    "uri": "/FINC462-662-SP2026/lectures/lecture_05/index.html"
+  },
+  {
     "breadcrumb": "FINC409/609 - Fixed Income Securities",
     "content": "",
     "description": "",

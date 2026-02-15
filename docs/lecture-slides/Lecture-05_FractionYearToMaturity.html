@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fixed Income: Fractional Years</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+        :root {
+            --primary: #1e3a8a;    /* Navy */
+            --accent: #3b82f6;     /* Bright Blue */
+            --success: #10b981;    /* Emerald */
+            --danger: #ef4444;     /* Red */
+            --bg: #f3f4f6;         /* Light Gray Background */
+            --card-bg: #ffffff;
+            --text: #1f2937;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            margin: 0;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Headers */
+        header { text-align: center; margin-bottom: 50px; }
+        h1 { color: var(--primary); font-size: 2.2rem; margin-bottom: 10px; font-weight: 800; letter-spacing: -1px; }
+        .subtitle { color: #6b7280; font-size: 1.1rem; font-weight: 400; }
+        
+        h2 { 
+            color: var(--primary); 
+            font-size: 1.5rem; 
+            margin-top: 0; 
+            border-bottom: 2px solid #e5e7eb; 
+            padding-bottom: 15px; 
+            margin-bottom: 25px;
+        }
+
+        h3 { color: var(--accent); font-size: 1.1rem; margin-top: 30px; }
+
+        /* Card Styling */
+        .card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Visual Timeline (SVG) */
+        .timeline-container {
+            width: 100%;
+            background: #ffffff;
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        /* Math and Steps */
+        .formula-box {
+            background: #eff6ff;
+            border-left: 4px solid var(--accent);
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .step-block {
+            padding: 20px;
+            background: #f9fafb;
+            border-radius: 8px;
+            border: 1px solid #e5e7eb;
+            margin-bottom: 20px;
+        }
+        
+        .step-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .final-answer {
+            font-family: 'Courier New', monospace;
+            background: #ecfdf5;
+            color: #064e3b;
+            padding: 15px;
+            border-radius: 8px;
+            font-weight: 700;
+            text-align: center;
+            border: 1px solid #a7f3d0;
+            font-size: 1.1rem;
+            margin-top: 20px;
+        }
+        
+        .note {
+            font-size: 0.9rem;
+            color: #6b7280;
+            background: #fffbeb;
+            border: 1px solid #fcd34d;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <header>
+        <h1>Fixed Income Valuation</h1>
+        <div class="subtitle">Pricing with Fractional Years (e.g., 5.2 Years)</div>
+    </header>
+
+    <div class="card">
+        <h2>1. The Intuition: "Time Travel"</h2>
+        <p>In practice, we need to calculate price of bonds with, for instance, 5 years and 75 days to maturity. 
+           However, standard annuity formulas are in some sense rigid, i.e., the first payment is assumed to be exactly one full interval away.</p>
+        
+        <p>We solve this issue using a two-step mental shortcut:</p>
+
+        <div class="timeline-container">
+            <svg viewBox="0 0 800 240" style="width: 100%; height: auto; max-width: 800px;">
+                <defs>
+                    <marker id="arrow-green" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                        <polygon points="0 0, 10 3.5, 0 7" fill="#10b981" />
+                    </marker>
+                    <marker id="arrow-red" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                        <polygon points="0 0, 10 3.5, 0 7" fill="#ef4444" />
+                    </marker>
+                </defs>
+
+                <line x1="50" y1="130" x2="750" y2="130" stroke="#9ca3af" stroke-width="3" stroke-linecap="round" />
+
+                <circle cx="100" cy="130" r="8" fill="#ef4444" stroke="white" stroke-width="3"/>
+                <circle cx="300" cy="130" r="8" fill="#10b981" stroke="white" stroke-width="3"/>
+                <circle cx="700" cy="130" r="8" fill="#1e3a8a" stroke="white" stroke-width="3"/>
+
+                <text x="100" y="160" font-family="Inter" font-size="14" font-weight="bold" fill="#ef4444" text-anchor="middle">TODAY</text>
+                <text x="100" y="180" font-family="Inter" font-size="12" fill="#6b7280" text-anchor="middle">Year 0</text>
+
+                <text x="300" y="160" font-family="Inter" font-size="14" font-weight="bold" fill="#10b981" text-anchor="middle">NEXT COUPON</text>
+                <text x="300" y="180" font-family="Inter" font-size="12" fill="#6b7280" text-anchor="middle">Year 0.205</text>
+                <text x="300" y="195" font-family="Inter" font-size="11" fill="#9ca3af" text-anchor="middle">(75 Days)</text>
+
+                <text x="700" y="160" font-family="Inter" font-size="14" font-weight="bold" fill="#1e3a8a" text-anchor="middle">MATURITY</text>
+                <text x="700" y="180" font-family="Inter" font-size="12" fill="#6b7280" text-anchor="middle">Year 5.205</text>
+
+                <path d="M 100 100 Q 200 40 300 100" stroke="#10b981" stroke-width="2" fill="none" marker-end="url(#arrow-green)" stroke-dasharray="5,5"/>
+                <rect x="160" y="55" width="80" height="20" fill="white" rx="4" opacity="0.9"/>
+                <text x="200" y="70" font-family="Inter" font-size="11" font-weight="bold" fill="#10b981" text-anchor="middle">STEP 1: FWD</text>
+
+                <path d="M 300 145 Q 200 205 100 145" stroke="#ef4444" stroke-width="2" fill="none" marker-end="url(#arrow-red)"/>
+                <rect x="160" y="185" width="80" height="20" fill="white" rx="4" opacity="0.9"/>
+                <text x="200" y="200" font-family="Inter" font-size="11" font-weight="bold" fill="#ef4444" text-anchor="middle">STEP 2: BACK</text>
+            </svg>
+        </div>
+
+        <ol>
+            <li><strong>Step 1 (Forward):</strong> Fast-forward to the next coupon date. Calculate the value there.</li>
+            <li><strong>Step 2 (Back):</strong> Discount that future value back to "today".</li>
+        </ol>
+    </div>
+
+    <div class="card">
+        <h2>2. Examples</h2>
+        <p><strong>Scenario:</strong>
+        <br>&bull; Time to Maturity: 5 Years and 75 Days.
+        <br>&bull; Coupon: 5% (Paid Semi-Annually, so $25 per payment).
+        <br>&bull; Discount rate ($YTM$): 6% per annum.</p>
+        
+        <p><em>Note: Because coupons are paid semi-annually, the periodic rate is $r = 0.03$.</em></p>
+
+        <h3>Case A: Zero Coupon Bond</h3>
+        <p>For a Zero, we simply measure the total time in years and plug it into the PV formula.</p>
+        
+        <div class="step-block">
+            <span class="step-label">1. Calculate Total Time (Years)</span>
+            $$ T_{years} = 5 + \frac{75}{365} = 5.2055 \text{ Years} $$
+            
+            <span class="step-label" style="margin-top:15px;">2. Discount Face Value</span>
+            <p>We use the semi-annual rate ($r=0.03$). The exponent must double the years to count semi-annual intervals.</p>
+            $$ PV = \frac{1000}{(1+r)^{2 \times T_{years}}} $$
+            $$ PV = \frac{1000}{(1.03)^{10.411}} = \$735.21 $$
+        </div>
+
+        <h3>Case B: Coupon Bond</h3>
+        
+        <div class="step-block" style="border-left: 4px solid #10b981;">
+            <span class="step-label" style="color:#059669;">Step 1: Value at "Next Coupon" (Future)</span>
+            <p>Imagine we are standing at the <strong>0.205 Year</strong> mark. There are exactly 5 years remaining.</p>
+            <p>Since payments are semi-annual, 5 years means <strong>10 payments</strong> ($T=10$). We use the Annuity Formula:</p>
+
+            <div class="formula-box">
+                $$ PV_{annuity} = \frac{C}{r} \left( 1 - \frac{1}{(1+r)^T} \right) $$
+            </div>
+
+            <p>Substituting $C=25$, $r=0.03$, and $T=10$:</p>
+            $$ P_{future} = \frac{25}{0.03} \left( 1 - \frac{1}{(1.03)^{10}} \right) + \frac{1000}{(1.03)^{10}} $$
+            $$ P_{future} = \$213.26 + \$744.09 = \$957.35 $$
+            
+            <p><strong>Crucial:</strong> Don't forget the coupon ($25) we get at this moment!</p>
+            <p><strong>Total Future Value</strong> = $957.35 + $25.00 = {\$982.35}$</p>
+        </div>
+
+        <div class="step-block" style="border-left: 4px solid #ef4444;">
+            <span class="step-label" style="color:#dc2626;">Step 2: Discount Back to Today</span>
+            <p>Now, bring that amount back to the present. The time difference is 75 days.</p>
+            $$ \text{Fractional Year } (w) = \frac{75}{365} = 0.2055 \text{ Years} $$
+            
+            <p>We discount using the semi-annual convention ($2 \times w$ in the exponent):</p>
+            $$ PV_{today} = \frac{\text{Total Future Value}}{(1+r)^{2 \times w}} $$
+            $$ PV_{today} = \frac{982.35}{(1.03)^{0.411}} $$
+            
+            <div class="final-answer">Price = $970.49</div>
+        </div>
+
+        <div class="note">
+            <strong>Clean vs. Dirty Price:</strong> The $970.49 calculated above is the <strong>dirty price</strong> (also full price or invoice price). The price you see on a trading screen (clean price) would subtract the accrued interest for the 107 days that have passed in the coupon period.
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
