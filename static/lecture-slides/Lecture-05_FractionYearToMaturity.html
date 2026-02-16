@@ -183,9 +183,9 @@
         <p><strong>Scenario:</strong>
         <br>&bull; Time to Maturity: 5 Years and 75 Days.
         <br>&bull; Coupon: 5% (Paid Semi-Annually, so $25 per payment).
-        <br>&bull; Discount rate ($YTM$): 6% per annum.</p>
+        <br>&bull; Discount Rate: 6% per annum.</p>
         
-        <p><em>Note: Because coupons are paid semi-annually, the periodic rate is $r = 0.03$.</em></p>
+        <p><em>Note: Because coupons are paid semi-annually, the periodic rate is \(r = 0.03\).</em></p>
 
         <h3>Case A: Zero Coupon Bond</h3>
         <p>For a Zero, we simply measure the total time in years and plug it into the PV formula.</p>
@@ -195,7 +195,7 @@
             $$ T_{years} = 5 + \frac{75}{365} = 5.2055 \text{ Years} $$
             
             <span class="step-label" style="margin-top:15px;">2. Discount Face Value</span>
-            <p>We use the semi-annual rate ($r=0.03$). The exponent must double the years to count semi-annual intervals.</p>
+            <p>We use the semi-annual rate (\(r=0.03\)). The exponent must double the years to count semi-annual intervals.</p>
             $$ PV = \frac{1000}{(1+r)^{2 \times T_{years}}} $$
             $$ PV = \frac{1000}{(1.03)^{10.411}} = \$735.21 $$
         </div>
@@ -205,18 +205,18 @@
         <div class="step-block" style="border-left: 4px solid #10b981;">
             <span class="step-label" style="color:#059669;">Step 1: Value at "Next Coupon" (Future)</span>
             <p>Imagine we are standing at the <strong>0.205 Year</strong> mark. There are exactly 5 years remaining.</p>
-            <p>Since payments are semi-annual, 5 years means <strong>10 payments</strong> ($T=10$). We use the Annuity Formula:</p>
+            <p>Since payments are semi-annual, 5 years means <strong>10 payments</strong> (\(T=10\)). We use the Annuity Formula:</p>
 
             <div class="formula-box">
                 $$ PV_{annuity} = \frac{C}{r} \left( 1 - \frac{1}{(1+r)^T} \right) $$
             </div>
 
-            <p>Substituting $C=25$, $r=0.03$, and $T=10$:</p>
+            <p>Substituting \(C=25\), \(r=0.03\), and \(T=10\):</p>
             $$ P_{future} = \frac{25}{0.03} \left( 1 - \frac{1}{(1.03)^{10}} \right) + \frac{1000}{(1.03)^{10}} $$
             $$ P_{future} = \$213.26 + \$744.09 = \$957.35 $$
             
             <p><strong>Crucial:</strong> Don't forget the coupon ($25) we get at this moment!</p>
-            <p><strong>Total Future Value</strong> = $957.35 + $25.00 = {\$982.35}$</p>
+            <p><strong>Total Future Value</strong> = $957.35 + $25.00 = \$982.35$</p>
         </div>
 
         <div class="step-block" style="border-left: 4px solid #ef4444;">
@@ -224,7 +224,7 @@
             <p>Now, bring that amount back to the present. The time difference is 75 days.</p>
             $$ \text{Fractional Year } (w) = \frac{75}{365} = 0.2055 \text{ Years} $$
             
-            <p>We discount using the semi-annual convention ($2 \times w$ in the exponent):</p>
+            <p>We discount using the semi-annual convention (\(2 \times w\) in the exponent):</p>
             $$ PV_{today} = \frac{\text{Total Future Value}}{(1+r)^{2 \times w}} $$
             $$ PV_{today} = \frac{982.35}{(1.03)^{0.411}} $$
             
