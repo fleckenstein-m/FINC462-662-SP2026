@@ -18,4 +18,4 @@ weight: 1
 | 2026-02-19     | Thursday     | Lecture 5 (Bond Pricing)                                                      |                     |
 |                                                                                                                                     |
 | 2026-02-24     | Tuesday      | Lecture 5b (Bond Pricing)                                                     |  **Assignment 03**  |
-| 2026-02-29     | Thursday     | Lecture 6  (Bond Yields and Bond Pricing by Replication)                      |                     |
+| 2026-02-26     | Thursday     | Lecture 6  (Bond Yields and Bond Pricing by Replication)                      |                     |
