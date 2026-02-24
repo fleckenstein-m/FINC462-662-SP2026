@@ -14,8 +14,8 @@ weight: 3
 
 ## Miscellaneous
 
-- [Practice Problem Excel 1](../../inclass-problems/Lecture_05-TreasuryAtAuction_noSol.xlsx)
-- [Practice Problem Excel 2](../../inclass-problems/Lecture_05-DiscountFactors_noSol.xlsx)
+- [Practice Problem Excel 1](../../inclass-problems/Lecture_05-TreasuryAtAuction.xlsx)
+- [Practice Problem Excel 2](../../inclass-problems/Lecture_05-DiscountFactors.xlsx)
 
 
 

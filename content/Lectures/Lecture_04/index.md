@@ -7,7 +7,7 @@ weight: 3
 
 ## Lecture Materials
 
-- [Lecture 4 Slides](../../lecture-slides/Lecture-04_noSol.html)
+- [Lecture 4 Slides](../../lecture-slides/Lecture-04.html)
 - [Lecture 4 Quiz](../../quizzes/Lecture_04_Quiz.html)
 
 
