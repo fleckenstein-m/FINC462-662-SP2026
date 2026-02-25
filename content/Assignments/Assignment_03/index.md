@@ -4,4 +4,4 @@ weight: 2
 ---
 
 
-- [Problem Set](../../assignments/Assignment_03.html)
+- [Problem Set](../../assignments/Assignment_03_wSol.html)
