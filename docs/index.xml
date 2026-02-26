@@ -2,30 +2,30 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>FINC409/609 - Fixed Income Securities</title>
-    <link>http://localhost:1313/FINC462-662-SP2026/index.html</link>
+    <link>https://fleckenstein-m.github.io/FINC462-662-SP2026/index.html</link>
     <description>Course Description&#xD;This course provides an introduction to fixed income markets and the analytical tools used by market participants. Fixed income markets have evolved significantly in recent years, particularly following the global financial crisis. Regulatory changes, unconventional monetary policy and extended periods of very low or near-zero nominal interest rates, increased government borrowing, shifts in the empirical behavior of U.S. Treasury securities, and the introduction of new fixed income instruments have all influenced how these markets function and how fixed income securities are priced and risk-managed.</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <atom:link href="http://localhost:1313/FINC462-662-SP2026/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://fleckenstein-m.github.io/FINC462-662-SP2026/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Calendar</title>
-      <link>http://localhost:1313/FINC462-662-SP2026/calendar/index.html</link>
+      <link>https://fleckenstein-m.github.io/FINC462-662-SP2026/calendar/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/FINC462-662-SP2026/calendar/index.html</guid>
-      <description>Course Calendar&#xD;Date Day Lecture Assignment Due 2026-02-03 Tuesday Lecture 01 (Introduction to Fixed Income Markets) — 2026-02-05 Thursday Lecture 02 (The U.S. Treasury Market) — 2026-02-10 Tuesday Lecture 03a (Price-Quoting Conventions in the U.S. Treasury Market) Assignment 01 2026-02-12 Thursday Lecture 03b (Price-Quoting Conventions in the U.S. Treasury Market) 2026-02-17 Tuesday Lecture 4 (Bond Pricing Fundamentals) Assignment 02 2026-02-19 Thursday Lecture 5 (Bond Pricing) 2026-02-24 Tuesday Lecture 5b (Bond Pricing) Assignment 03 2026-02-26 Thursday Lecture 6 (Bond Yields and Bond Pricing by Replication)</description>
+      <guid>https://fleckenstein-m.github.io/FINC462-662-SP2026/calendar/index.html</guid>
+      <description>Course Calendar&#xD;Date Day Lecture Assignment Due 2026-02-03 Tuesday Lecture 01 (Introduction to Fixed Income Markets) — 2026-02-05 Thursday Lecture 02 (The U.S. Treasury Market) — 2026-02-10 Tuesday Lecture 03a (Price-Quoting Conventions in the U.S. Treasury Market) Assignment 01 2026-02-12 Thursday Lecture 03b (Price-Quoting Conventions in the U.S. Treasury Market) 2026-02-17 Tuesday Lecture 4 (Bond Pricing Fundamentals) Assignment 02 2026-02-19 Thursday Lecture 5 (Bond Pricing) 2026-02-24 Tuesday Lecture 5b (Bond Pricing) Assignment 03 2026-02-26 Thursday Lecture 6 (Bond Yields and Bond Pricing by Replication) 2026-03-03 Tuesday Lecture 6b (Bond Yields and Bond Pricing by Replication) Assignment 04</description>
     </item>
     <item>
       <title>Lectures</title>
-      <link>http://localhost:1313/FINC462-662-SP2026/lectures/index.html</link>
+      <link>https://fleckenstein-m.github.io/FINC462-662-SP2026/lectures/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/FINC462-662-SP2026/lectures/index.html</guid>
+      <guid>https://fleckenstein-m.github.io/FINC462-662-SP2026/lectures/index.html</guid>
       <description></description>
     </item>
     <item>
       <title>Assignments</title>
-      <link>http://localhost:1313/FINC462-662-SP2026/assignments/index.html</link>
+      <link>https://fleckenstein-m.github.io/FINC462-662-SP2026/assignments/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/FINC462-662-SP2026/assignments/index.html</guid>
+      <guid>https://fleckenstein-m.github.io/FINC462-662-SP2026/assignments/index.html</guid>
       <description>Geltzeiler Trading Center (Purnell Hall 114)&#xA;This table shows the days/times when no classes are scheduled in the Geltzeiler Trading Center (Purnell Hall 114). Please note that the Trading Center may be unavailable when events are scheduled on short notice.&#xA;Monday Tuesday Wednesday Thursday Friday 11:30 AM – 2:00 PM 11:00 AM – 6:00 PM 11:30 AM – 1:00 PM 11:00 AM – 5:30 PM 11:30 AM – 2:00 PM 4:00 PM – 5:30 PM 4:00 PM – 5:30 PM 4:00 PM – 5:00 PM 6:00 PM – 9:00 PM</description>
     </item>
   </channel>
