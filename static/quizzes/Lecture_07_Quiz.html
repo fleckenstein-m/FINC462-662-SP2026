@@ -1,0 +1,384 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title> FINC409-609 Lecture 07 Quiz — Term Structure of Interest Rates</title>
+  <style>
+    :root{
+      --bg:#0b0f14; --card:#121823; --text:#e8eef7; --muted:#a9b6c7;
+      --border:#223043; --good:#2ecc71; --bad:#ff6b6b; --accent:#66a3ff;
+    }
+    @media (prefers-color-scheme: light){
+      :root{ --bg:#f6f8fb; --card:#ffffff; --text:#0b1220; --muted:#526070; --border:#d9e1ee; --accent:#245bdb; }
+    }
+    *{ box-sizing:border-box; }
+    body{
+      margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      background:var(--bg); color:var(--text); line-height:1.35;
+    }
+    header{
+      padding: 28px 18px 10px; max-width: 980px; margin: 0 auto;
+    }
+    h1{ margin:0 0 8px; font-size: 22px; letter-spacing: .2px; }
+    p.lede{ margin:0 0 14px; color:var(--muted); }
+    .topbar{
+      display:flex; gap:12px; align-items:center; justify-content:space-between;
+      border:1px solid var(--border); background: color-mix(in srgb, var(--card) 92%, transparent);
+      padding: 12px 14px; border-radius: 12px;
+    }
+    .score{
+      display:flex; gap:10px; align-items:center; flex-wrap:wrap;
+      color:var(--muted); font-size: 14px;
+    }
+    .pill{
+      display:inline-flex; align-items:center; gap:8px;
+      padding: 7px 10px; border-radius: 999px; border:1px solid var(--border);
+      background: color-mix(in srgb, var(--card) 94%, transparent);
+      color: var(--text);
+      font-size: 13px;
+    }
+    .pill b{ font-variant-numeric: tabular-nums; }
+    button{
+      appearance:none; border:1px solid var(--border); background: var(--card); color:var(--text);
+      padding: 9px 12px; border-radius: 10px; cursor:pointer; font-weight: 600;
+    }
+    button:hover{ border-color: color-mix(in srgb, var(--accent) 55%, var(--border)); }
+    button:active{ transform: translateY(1px); }
+    main{ max-width: 980px; margin: 0 auto; padding: 12px 18px 38px; }
+    .question{
+      background:var(--card); border:1px solid var(--border); border-radius: 14px;
+      padding: 14px 14px 12px; margin: 12px 0;
+    }
+    .question.correct{ border-color: color-mix(in srgb, var(--good) 45%, var(--border)); }
+    .question.incorrect{ border-color: color-mix(in srgb, var(--bad) 45%, var(--border)); }
+    legend{
+      font-weight: 750; padding: 0 2px; margin-bottom: 8px;
+    }
+    fieldset{ border:0; padding:0; margin:0; }
+    .options{ display:grid; gap:8px; margin-top: 10px; }
+    label.option{
+      display:flex; gap:10px; align-items:flex-start;
+      padding: 9px 10px; border-radius: 12px; border:1px solid var(--border);
+      background: color-mix(in srgb, var(--card) 90%, transparent);
+      cursor:pointer;
+    }
+    label.option:hover{ border-color: color-mix(in srgb, var(--accent) 45%, var(--border)); }
+    input[type="radio"]{ margin-top: 2px; }
+    .feedback{
+      margin-top: 10px; padding: 10px 12px; border-radius: 12px;
+      border: 1px dashed var(--border); color: var(--muted); font-size: 14px;
+    }
+    .feedback.good{ border-color: color-mix(in srgb, var(--good) 55%, var(--border)); color: var(--text); }
+    .feedback.bad{ border-color: color-mix(in srgb, var(--bad) 55%, var(--border)); color: var(--text); }
+    .explain{ margin-top: 6px; color: var(--muted); }
+    .small{ font-size: 12px; color: var(--muted); margin-top: 8px; }
+    .k{ padding: 0 6px; border-radius: 7px; border:1px solid var(--border); background: color-mix(in srgb, var(--card) 80%, transparent); font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
+  </style>
+
+  <!-- MathJax for LaTeX rendering -->
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)']],
+        displayMath: [['\\[', '\\]']]
+      }
+    };
+  </script>
+  <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+</head>
+<body>
+  <header>
+    <h1>FINC409/609: Lecture 07 Quiz — Term Structure of Interest Rates</h1>
+    <p class="lede">
+      Select an answer for each question. You’ll get instant feedback and an explanation. Minimal calculation required.
+    </p>
+
+    <div class="topbar" role="region" aria-label="Quiz controls">
+      <div class="score" aria-live="polite">
+        <span class="pill">Answered: <b id="answered">0</b>/10</span>
+        <span class="pill">Correct: <b id="correct">0</b>/10</span>
+      </div>
+      <div>
+        <button id="resetBtn" type="button">Reset</button>
+      </div>
+    </div>
+    <div class="small">
+      Tip: the quiz uses the lecture’s conventions (semiannual coupons, spot/zero rates, discount factors, par yields, and bootstrapping).
+    </div>
+  </header>
+
+  <main id="quiz"></main>
+
+  <script>
+    "use strict";
+
+    const quizData = [
+      {
+        q: "Which statement best describes the fundamental approach to valuing a plain-vanilla Treasury note/bond?",
+        options: [
+          "Its price equals the present value of all promised coupon payments plus the present value of principal at maturity.",
+          "Its price equals face value plus the coupon rate times maturity.",
+          "Its price equals the sum of undiscounted cash flows.",
+          "Its price is always $100 if it is issued by the U.S. Treasury."
+        ],
+        answer: 0,
+        why: "Bond valuation starts from discounting promised cash flows: coupons and principal. Par ($100) is not guaranteed after issuance."
+      },
+      {
+        q: "When valuing a bond using the term structure, what rate (conceptually) should discount a cash flow occurring at time t?",
+        options: [
+          "The bond’s yield-to-maturity (single IRR).",
+          "The spot (zero-coupon) rate for maturity t, or equivalently the discount factor D(t).",
+          "The bond’s coupon rate.",
+          "The overnight policy rate."
+        ],
+        answer: 1,
+        why: "With a non-flat curve, each cash flow is discounted with the rate appropriate for its horizon (spot/zero rate), captured by D(t)."
+      },
+      {
+        q: "A 'zero-coupon yield curve' (term structure of interest rates) is best described as a plot of:",
+        options: [
+          "Coupon rates of outstanding Treasury notes versus maturity.",
+          "Spot (zero) yields versus maturity for zero-coupon Treasury cash flows.",
+          "Bond prices versus maturity.",
+          "Forward rates versus maturity only."
+        ],
+        answer: 1,
+        why: "The lecture frames the term structure as the zero-coupon (spot) yields r(t) or y(t) across maturities."
+      },
+      {
+        q: "For semiannually compounded spot rates, which expression matches the time-T discount factor D(T)?",
+        options: [
+          "\\(D(T) = \\frac{1}{(1 + r_T)^{T}}\\)",
+          "\\(D(T) = \\frac{1}{(1 + r_T/2)^{2T}}\\)",
+          "\\(D(T) = \\frac{1}{(1 + 2r_T)^{T}}\\)",
+          "\\(D(T) = (1 + r_T/2)^{2T}\\)"
+        ],
+        answer: 1,
+        why: "With m = 2 compounding periods per year, the lecture uses \\(D(T)=\\frac{1}{(1+r_T/2)^{2T}}\\)."
+      },
+      {
+        q: "What is the best interpretation of the discount factor D(t) in an arbitrage-free, default-free term structure?",
+        options: [
+          "The price today of $1 received at time t (the present value of a unit payoff at t).",
+          "The coupon rate that sets a bond’s price to par at maturity t.",
+          "A single yield-to-maturity used to discount every cash flow of a coupon bond maturing at t.",
+          "The forward rate that applies only between t−0.5 and t."
+        ],
+        answer: 0,
+        why: "D(t) is the building block of term-structure pricing: it is the present value of $1 paid at time t for a default-free cash flow. Given all D(t), you can price any bond by discounting each promised cash flow at its own horizon."
+      },
+      {
+        q: "Why is a bond’s yield-to-maturity generally NOT an appropriate discount rate for each individual cash flow when the curve is not flat?",
+        options: [
+          "Because yield-to-maturity ignores the principal payment.",
+          "Because yield-to-maturity is a single internal rate of return that blends discounting across different maturities.",
+          "Because yield-to-maturity is always higher than every spot rate.",
+          "Because yield-to-maturity is only defined for zero-coupon bonds."
+        ],
+        answer: 1,
+        why: "YTM is a single IRR that equates PV of all cash flows to price; it does not provide the maturity-specific discounting needed under a term structure."
+      },
+      {
+        q: "A 'par yield' for maturity T is best described as:",
+        options: [
+          "The coupon rate that makes a newly issued bond trade exactly at par (price = 100) for that maturity.",
+          "The spot (zero) rate for maturity T.",
+          "The forward rate from T−1 to T.",
+          "The average of all spot rates up to maturity T."
+        ],
+        answer: 0,
+        why: "Par yield is the yield-to-maturity (and coupon rate, under standard conventions) of a bond priced at par."
+      },
+      {
+        q: "The Treasury Constant Maturity (CMT) yield curve is best characterized as:",
+        options: [
+          "A zero-coupon (spot) yield curve estimated from stripped Treasury cash flows.",
+          "A par yield curve for 'constant' maturities (e.g., 2Y, 5Y, 10Y), typically obtained via interpolation from Treasury yields.",
+          "A corporate bond spread curve over Treasuries.",
+          "A curve of coupon rates for on-the-run Treasuries only."
+        ],
+        answer: 1,
+        why: "CMT is presented in the lecture as an example of a par yield curve (yields for constant maturities, not directly spot rates)."
+      },
+      {
+        q: "In bootstrapping a zero-coupon curve from a par yield curve (semiannual coupons), why do we start with the shortest maturity (e.g., 0.5 years)?",
+        options: [
+          "Because the shortest-maturity par bond typically has only one cash flow, so its discount factor can be solved directly.",
+          "Because longer maturities have more reliable prices than short maturities.",
+          "Because bootstrapping requires guessing discount factors randomly and refining them.",
+          "Because par yields equal forward rates at the shortest maturity."
+        ],
+        answer: 0,
+        why: "Bootstrapping proceeds sequentially: solve D(0.5) first, then use it to solve D(1.0), and so on."
+      },
+      {
+        q: "After bootstrapping discount factors, which formula converts a discount factor D(t) into the semiannually compounded spot rate r_t?",
+        options: [
+          "\\(r_t = 2\\left[\\left(\\frac{1}{D(t)}\\right)^{\\frac{1}{2t}} - 1\\right]\\)",
+          "\\(r_t = \\frac{1 - D(t)}{t}\\)",
+          "\\(r_t = 2\\left(D(t)^{\\frac{1}{2t}} - 1\\right)\\)",
+          "\\(r_t = \\frac{\\ln(D(t))}{t}\\)"
+        ],
+        answer: 0,
+        why: "Rearranging \\(D(t)=\\frac{1}{(1+r_t/2)^{2t}}\\) gives \\(r_t = 2\\left((1/D(t))^{\\frac{1}{2t}} - 1\\right)\\), exactly as in the lecture."
+      }
+    ];
+
+    const quizEl = document.getElementById("quiz");
+    const answeredEl = document.getElementById("answered");
+    const correctEl = document.getElementById("correct");
+    const resetBtn = document.getElementById("resetBtn");
+
+    // MathJax loads asynchronously; ensure any LaTeX is typeset once MathJax is ready.
+    function typesetWhenReady(elements) {
+      const maxTries = 200;   // ~10 seconds (200 * 50ms)
+      const delayMs = 50;
+      let tries = 0;
+
+      return new Promise((resolve) => {
+        const attempt = () => {
+          if (window.MathJax && MathJax.typesetPromise) {
+            MathJax.typesetPromise(elements).then(resolve).catch(() => resolve());
+            return;
+          }
+          tries += 1;
+          if (tries >= maxTries) { resolve(); return; }
+          setTimeout(attempt, delayMs);
+        };
+        attempt();
+      });
+    }
+
+    function renderQuiz() {
+      quizEl.innerHTML = "";
+      quizData.forEach((item, idx) => {
+        const card = document.createElement("section");
+        card.className = "question";
+        card.dataset.idx = String(idx);
+
+        const fieldset = document.createElement("fieldset");
+        const legend = document.createElement("legend");
+        legend.textContent = `${idx + 1}. ${item.q}`;
+        fieldset.appendChild(legend);
+
+        const optsWrap = document.createElement("div");
+        optsWrap.className = "options";
+
+        item.options.forEach((opt, optIdx) => {
+          const label = document.createElement("label");
+          label.className = "option";
+
+          const input = document.createElement("input");
+          input.type = "radio";
+          input.name = `q${idx}`;
+          input.value = String(optIdx);
+
+          const span = document.createElement("span");
+          span.textContent = opt;
+
+          label.appendChild(input);
+          label.appendChild(span);
+          optsWrap.appendChild(label);
+        });
+
+        const feedback = document.createElement("div");
+        feedback.className = "feedback";
+        feedback.id = `fb${idx}`;
+        feedback.setAttribute("aria-live", "polite");
+        feedback.textContent = "Select an answer to see feedback.";
+
+        fieldset.appendChild(optsWrap);
+        card.appendChild(fieldset);
+        card.appendChild(feedback);
+        quizEl.appendChild(card);
+
+        // Instant feedback when a choice is made
+        fieldset.addEventListener("change", () => gradeQuestion(idx));
+      });
+
+      // Typeset any LaTeX present in questions/options (MathJax loads async)
+      typesetWhenReady([quizEl]);
+      updateScore();
+    }
+
+    function gradeQuestion(idx) {
+      const item = quizData[idx];
+      const card = quizEl.querySelector(`.question[data-idx="${idx}"]`);
+      const feedback = document.getElementById(`fb${idx}`);
+      const selected = quizEl.querySelector(`input[name="q${idx}"]:checked`);
+
+      if (!selected) {
+        card.classList.remove("correct", "incorrect");
+        feedback.className = "feedback";
+        feedback.textContent = "Select an answer to see feedback.";
+        updateScore();
+        return;
+      }
+
+      const choice = Number(selected.value);
+      const isCorrect = choice === item.answer;
+
+      card.classList.toggle("correct", isCorrect);
+      card.classList.toggle("incorrect", !isCorrect);
+
+      feedback.className = "feedback " + (isCorrect ? "good" : "bad");
+
+      const correctText = item.options[item.answer];
+      const status = isCorrect ? "✅ Correct." : "❌ Not quite.";
+      feedback.innerHTML = `
+        <div><strong>${status}</strong> ${!isCorrect ? `Correct answer: <span class="k">${escapeHtml(correctText)}</span>.` : ""}</div>
+        <div class="explain">${escapeHtml(item.why)}</div>
+      `;
+
+      // Re-typeset math in this card (needed for dynamic feedback)
+      typesetWhenReady([card]);
+      updateScore();
+    }
+
+    function updateScore() {
+      let answered = 0;
+      let correct = 0;
+
+      quizData.forEach((item, idx) => {
+        const selected = quizEl.querySelector(`input[name="q${idx}"]:checked`);
+        if (selected) {
+          answered += 1;
+          if (Number(selected.value) === item.answer) correct += 1;
+        }
+      });
+
+      answeredEl.textContent = String(answered);
+      correctEl.textContent = String(correct);
+    }
+
+    function escapeHtml(str) {
+      return String(str)
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+    }
+
+    resetBtn.addEventListener("click", () => {
+      quizData.forEach((_, idx) => {
+        const checked = quizEl.querySelector(`input[name="q${idx}"]:checked`);
+        if (checked) checked.checked = false;
+        const card = quizEl.querySelector(`.question[data-idx="${idx}"]`);
+        const feedback = document.getElementById(`fb${idx}`);
+        card.classList.remove("correct", "incorrect");
+        feedback.className = "feedback";
+        feedback.textContent = "Select an answer to see feedback.";
+      });
+      updateScore();
+      window.scrollTo({top: 0, behavior: "smooth"});
+    });
+
+    renderQuiz();
+  </script>
+</body>
+</html>
