@@ -13,6 +13,6 @@ weight: 3
 
 ## Miscellaneous
 
-- [Practice Problem Excel](../../inclass-problems/Lecture_06_YieldToMaturityExample_noSol.xlsx)
-- [Practice Problems](../../inclass-problems/Lecture_06_ClassExercises_noSol.html)
+- [Practice Problem Excel](../../inclass-problems/Lecture_06_YieldToMaturityExample.xlsx)
+- [Practice Problems](../../inclass-problems/Lecture_06_ClassExercises.html)
 

@@ -13,4 +13,4 @@ weight: 3
 
 ## Miscellaneous
 
-- [Practice Problem Excel](../../inclass-problems/Lecture_04_TreasuryStrips_noSol.xlsx)
+- [Practice Problem Excel](../../inclass-problems/Lecture_04_TreasuryStrips.xlsx)
