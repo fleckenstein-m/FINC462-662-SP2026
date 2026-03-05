@@ -5,22 +5,22 @@
     <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
     <meta name="generator" content="Hugo 0.152.2">
     <meta name="generator" content="Relearn 8.2.0+220806ce3ced8264fbdd693f77f28216a8a1b6ae">
-    <meta name="description" content="Course DescriptionThis course provides an introduction to fixed income markets and the analytical tools used by market participants. Fixed income markets have evolved significantly in recent years, particularly following the global financial crisis. Regulatory changes, unconventional monetary policy and extended periods of very low or near-zero nominal interest rates, increased government borrowing, shifts in the empirical behavior of U.S. Treasury securities, and the introduction of new fixed income instruments have all influenced how these markets function and how fixed income securities are priced and risk-managed.">
+    <meta name="description" content="Lecture MaterialsLecture 8 Slides Lecture 8 Quiz MiscellaneousMacaulay Duration Modified Duration Modified Duration with Term Structure">
     <meta name="author" content="">
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="FINC409/609 - Fixed Income Securities">
-    <meta name="twitter:description" content="Course DescriptionThis course provides an introduction to fixed income markets and the analytical tools used by market participants. Fixed income markets have evolved significantly in recent years, particularly following the global financial crisis. Regulatory changes, unconventional monetary policy and extended periods of very low or near-zero nominal interest rates, increased government borrowing, shifts in the empirical behavior of U.S. Treasury securities, and the introduction of new fixed income instruments have all influenced how these markets function and how fixed income securities are priced and risk-managed.">
-    <meta property="og:url" content="https://fleckenstein-m.github.io/FINC462-662-SP2026/index.html">
+    <meta name="twitter:title" content="Lecture 08 :: FINC409/609 - Fixed Income Securities">
+    <meta name="twitter:description" content="Lecture MaterialsLecture 8 Slides Lecture 8 Quiz MiscellaneousMacaulay Duration Modified Duration Modified Duration with Term Structure">
+    <meta property="og:url" content="https://fleckenstein-m.github.io/FINC462-662-SP2026/lectures/lecture_08/index.html">
     <meta property="og:site_name" content="FINC409/609 - Fixed Income Securities">
-    <meta property="og:title" content="FINC409/609 - Fixed Income Securities">
-    <meta property="og:description" content="Course DescriptionThis course provides an introduction to fixed income markets and the analytical tools used by market participants. Fixed income markets have evolved significantly in recent years, particularly following the global financial crisis. Regulatory changes, unconventional monetary policy and extended periods of very low or near-zero nominal interest rates, increased government borrowing, shifts in the empirical behavior of U.S. Treasury securities, and the introduction of new fixed income instruments have all influenced how these markets function and how fixed income securities are priced and risk-managed.">
+    <meta property="og:title" content="Lecture 08 :: FINC409/609 - Fixed Income Securities">
+    <meta property="og:description" content="Lecture MaterialsLecture 8 Slides Lecture 8 Quiz MiscellaneousMacaulay Duration Modified Duration Modified Duration with Term Structure">
     <meta property="og:locale" content="en_us">
-    <meta property="og:type" content="website">
-    <meta itemprop="name" content="FINC409/609 - Fixed Income Securities">
-    <meta itemprop="description" content="Course DescriptionThis course provides an introduction to fixed income markets and the analytical tools used by market participants. Fixed income markets have evolved significantly in recent years, particularly following the global financial crisis. Regulatory changes, unconventional monetary policy and extended periods of very low or near-zero nominal interest rates, increased government borrowing, shifts in the empirical behavior of U.S. Treasury securities, and the introduction of new fixed income instruments have all influenced how these markets function and how fixed income securities are priced and risk-managed.">
-    <meta itemprop="wordCount" content="460">
-    <title>FINC409/609 - Fixed Income Securities</title>
-    <link href="/FINC462-662-SP2026/index.xml" rel="alternate" type="application/rss+xml" title="FINC409/609 - Fixed Income Securities">
+    <meta property="og:type" content="article">
+    <meta property="article:section" content="Lectures">
+    <meta itemprop="name" content="Lecture 08 :: FINC409/609 - Fixed Income Securities">
+    <meta itemprop="description" content="Lecture MaterialsLecture 8 Slides Lecture 8 Quiz MiscellaneousMacaulay Duration Modified Duration Modified Duration with Term Structure">
+    <meta itemprop="wordCount" content="18">
+    <title>Lecture 08 :: FINC409/609 - Fixed Income Securities</title>
     <link href="/FINC462-662-SP2026/images/favicon.png?1772718725" rel="icon" type="image/png">
     <link href="/FINC462-662-SP2026/css/auto-complete/auto-complete.min.css?1772718725" rel="stylesheet">
     <script src="/FINC462-662-SP2026/js/auto-complete/auto-complete.min.js?1772718725" defer></script>
@@ -46,9 +46,9 @@
       window.relearn = window.relearn || {};
       // configuration
       window.relearn.min = `.min`;
-      window.relearn.path='\/index.html';
-      window.relearn.relBasePath='.';
-      window.relearn.relBaseUri='..';
+      window.relearn.path='\/lectures\/lecture_08\/index.html';
+      window.relearn.relBasePath='..\/..';
+      window.relearn.relBaseUri='..\/..\/..';
       window.relearn.absBaseUri='https:\/\/fleckenstein-m.github.io\/FINC462-662-SP2026';
       window.relearn.disableInlineCopyToClipboard=false;
       window.relearn.enableBlockCodeWrap=true;
@@ -95,7 +95,7 @@
     </script>
     <link href="/FINC462-662-SP2026/css/custom.css?1772718725" rel="stylesheet">
   </head>
-  <body class="mobile-support html" data-url="/FINC462-662-SP2026/index.html">
+  <body class="mobile-support html" data-url="/FINC462-662-SP2026/lectures/lecture_08/index.html">
     <div id="R-body" class="default-animation">
       <div id="R-body-overlay"></div>
       <nav id="R-topbar">
@@ -111,26 +111,22 @@
                 <div class="topbar-content-wrapper">
 <nav class="TableOfContents">
   <ul>
-    <li><a href="#course-description">Course Description</a></li>
-    <li><a href="#learning-objectives">Learning Objectives</a></li>
-    <li><a href="#class-times">Class Times</a></li>
-    <li><a href="#office-hours">Office Hours</a></li>
-    <li><a href="#exam-schedule">Exam Schedule</a></li>
-    <li><a href="#course-syllabus">Course Syllabus</a></li>
+    <li><a href="#lecture-materials">Lecture Materials</a></li>
+    <li><a href="#miscellaneous">Miscellaneous</a></li>
   </ul>
 </nav>
                 </div>
               </div>
             </div>
           </div>
-          <ol class="topbar-breadcrumbs breadcrumbs highlightable" itemscope itemtype="http://schema.org/BreadcrumbList"><li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement" class=""><span itemprop="name">FINC409/609 - Fixed Income Securities</span><meta itemprop="position" content="1"></li>
+          <ol class="topbar-breadcrumbs breadcrumbs highlightable" itemscope itemtype="http://schema.org/BreadcrumbList"><li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement" class=""><a itemprop="item" href="/FINC462-662-SP2026/index.html"><span itemprop="name">FINC409/609 - Fixed Income Securities</span></a><meta itemprop="position" content="1">&nbsp;>&nbsp;</li><li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement" class=""><a itemprop="item" href="/FINC462-662-SP2026/lectures/index.html"><span itemprop="name">Lectures</span></a><meta itemprop="position" content="2">&nbsp;>&nbsp;</li><li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement" class=""><span itemprop="name">Lecture 08</span><meta itemprop="position" content="3"></li>
           </ol>
           <div class="topbar-area topbar-area-end" data-area="end">
             <div class="topbar-button topbar-button-prev" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show">
-<span class="btn cstyle button link noborder notitle"><span><i class="fa-fw fas fa-chevron-left"></i></span></span>
+<span class="btn cstyle button link noborder notitle interactive"><a href="/FINC462-662-SP2026/lectures/lecture_07/index.html" title="Lecture 07 (🡐)"><i class="fa-fw fas fa-chevron-left"></i></a></span>
             </div>
             <div class="topbar-button topbar-button-next" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show">
-<span class="btn cstyle button link noborder notitle interactive"><a href="/FINC462-662-SP2026/calendar/index.html" title="Calendar (🡒)"><i class="fa-fw fas fa-chevron-right"></i></a></span>
+<span class="btn cstyle button link noborder notitle interactive"><a href="/FINC462-662-SP2026/assignments/index.html" title="Assignments (🡒)"><i class="fa-fw fas fa-chevron-right"></i></a></span>
             </div>
             <div class="topbar-button topbar-button-more" data-content-empty="hide" data-width-s="show" data-width-m="show" data-width-l="show">
 <span class="btn cstyle button link noborder notitle interactive"><button onclick="toggleTopbarFlyout(this)" type="button" title="More"><i class="fa-fw fas fa-ellipsis-v"></i></button></span>
@@ -145,130 +141,25 @@
         </div>
       </nav>
       <div id="R-main-overlay"></div>
-      <main id="R-body-inner" class="highlightable home" tabindex="-1">
+      <main id="R-body-inner" class="highlightable lectures" tabindex="-1">
         <div class="flex-block-wrapper">
-<article class="home">
+<article class="default">
   <header class="headline">
   </header>
 
-<h1 id="finc409609---fixed-income-securities">FINC409/609 - Fixed Income Securities</h1>
+<h1 id="lecture-08">Lecture 08</h1>
 
-<h2 id="course-description">Course Description<span class="btn cstyle anchor copyanchor scrollanchor link noborder notitle interactive"><button type="button" title="Copy link to clipboard"><i class="fa-fw fas fa-link fa-lg"></i></button></span></h2>
-<p>This course provides an introduction to fixed income markets and the analytical tools used by market participants. Fixed income markets have evolved significantly in recent years, particularly following the global financial crisis. Regulatory changes, unconventional monetary policy and extended periods of very low or near-zero nominal interest rates, increased government borrowing, shifts in the empirical behavior of U.S. Treasury securities, and the introduction of new fixed income instruments have all influenced how these markets function and how fixed income securities are priced and risk-managed.</p>
-<p>Fixed income is a broad topic that cannot be covered comprehensively in a single semester. Accordingly, the course is selective and focuses on the core concepts and methods that underpin fixed income valuation and risk management. With a strong foundation in the underlying theory and market conventions, students will be well-positioned to learn additional institutional details and specialized products in professional settings.</p>
-<p>The course is quantitative and emphasizes practical implementation. Students will work extensively with formulas, numerical methods, and real-world valuation and hedging techniques widely used in industry, including by banks and asset managers.</p>
-<h2 id="learning-objectives">Learning Objectives<span class="btn cstyle anchor copyanchor scrollanchor link noborder notitle interactive"><button type="button" title="Copy link to clipboard"><i class="fa-fw fas fa-link fa-lg"></i></button></span></h2>
-<p>After completing this course, students will be able to:</p>
+<h2 id="lecture-materials">Lecture Materials<span class="btn cstyle anchor copyanchor scrollanchor link noborder notitle interactive"><button type="button" title="Copy link to clipboard"><i class="fa-fw fas fa-link fa-lg"></i></button></span></h2>
 <ul>
-<li>Describe the structure of bond markets, the main fixed income instruments, and the conventions used to quote, trade, and price fixed income securities.</li>
-<li>Explain the U.S. Treasury market, including major Treasury instruments and the mechanisms through which Treasuries are issued and traded.</li>
-<li>Apply time-value-of-money principles to price fixed income cash flows and interpret discount factors and their role in valuation.</li>
-<li>Use replicating portfolios and the law of one price to value fixed income securities and identify arbitrage relationships.</li>
-<li>Analyze the term structure of interest rates and use it to price bonds and other fixed income instruments.</li>
-<li>Explain the bond price-yield relationship and quantify interest rate sensitivity using standard measures.</li>
-<li>Compute and apply duration and convexity to measure interest rate risk and to hedge single-bond positions and bond portfolios.</li>
-<li>Implement and evaluate common fixed income trading strategies.</li>
-<li>Understand the mechanics and uses of forward and futures contracts in fixed income markets.</li>
-<li>Price and interpret key interest rate derivatives, especially interest rate swaps, and apply them to hedge interest rate risk.</li>
+<li><a href="../../lecture-slides/Lecture-08_noSol.html">Lecture 8 Slides</a></li>
+<li><a href="../../quizzes/">Lecture 8 Quiz</a></li>
 </ul>
-<h2 id="class-times">Class Times<span class="btn cstyle anchor copyanchor scrollanchor link noborder notitle interactive"><button type="button" title="Copy link to clipboard"><i class="fa-fw fas fa-link fa-lg"></i></button></span></h2>
-<table>
-  <thead>
-      <tr>
-          <th style="text-align: left"></th>
-          <th style="text-align: left">FINC 409/609</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td style="text-align: left">Day(s)</td>
-          <td style="text-align: left">Tue, Thu</td>
-      </tr>
-      <tr>
-          <td style="text-align: left">Time</td>
-          <td style="text-align: left">Section 010: 9.35am-10.55am</td>
-      </tr>
-      <tr>
-          <td style="text-align: left"></td>
-          <td style="text-align: left">Section 011: 11.10am-12.30pm</td>
-      </tr>
-      <tr>
-          <td style="text-align: left">Location</td>
-          <td style="text-align: left">Gore Hall 219</td>
-      </tr>
-  </tbody>
-</table>
-<h2 id="office-hours">Office Hours<span class="btn cstyle anchor copyanchor scrollanchor link noborder notitle interactive"><button type="button" title="Copy link to clipboard"><i class="fa-fw fas fa-link fa-lg"></i></button></span></h2>
-<table>
-  <thead>
-      <tr>
-          <th style="text-align: left">Section</th>
-          <th style="text-align: left">FINC 409/609</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td style="text-align: left">Day(s)</td>
-          <td style="text-align: left">Tuesdays</td>
-      </tr>
-      <tr>
-          <td style="text-align: left">Time</td>
-          <td style="text-align: left">4.00pm-5.30pm</td>
-      </tr>
-      <tr>
-          <td style="text-align: left">Location</td>
-          <td style="text-align: left">310 Purnell Hall</td>
-      </tr>
-  </tbody>
-</table>
-<h2 id="exam-schedule">Exam Schedule<span class="btn cstyle anchor copyanchor scrollanchor link noborder notitle interactive"><button type="button" title="Copy link to clipboard"><i class="fa-fw fas fa-link fa-lg"></i></button></span></h2>
-<ol>
-<li>Midterm 1</li>
-</ol>
+<h2 id="miscellaneous">Miscellaneous<span class="btn cstyle anchor copyanchor scrollanchor link noborder notitle interactive"><button type="button" title="Copy link to clipboard"><i class="fa-fw fas fa-link fa-lg"></i></button></span></h2>
 <ul>
-<li>Date: <em>March 12, 2026</em></li>
-<li>Time: 9.35am-10.55am (Section 010); 11.10am-12.30pm (Section 011)</li>
-<li>Location: Gore Hall Hall 219</li>
+<li><a href="../../inclass-problems/Lecture_08_MacaulayDuration.xlsx">Macaulay Duration</a></li>
+<li><a href="../../inclass-problems/Lecture_08_ModifiedDuration.xlsx">Modified Duration</a></li>
+<li><a href="../../inclass-problems/Lecture_08_ModifiedDurationTermStructure.xlsx">Modified Duration with Term Structure</a></li>
 </ul>
-<ol start="2">
-<li>Midterm 2</li>
-</ol>
-<ul>
-<li>Date: <em>April 14, 2026</em></li>
-<li>Time: 9.35am-10.55am (Section 010); 11.10am-12.30pm (Section 011)</li>
-<li>Location: Gore Hall Hall 219</li>
-</ul>
-<ol start="3">
-<li>Final Exam</li>
-</ol>
-<ul>
-<li>Section 010:
-<ul>
-<li>Date: <em>May 19, 2026</em></li>
-<li>Time: 8.00am-10.00am</li>
-<li>Location: Gore Hall 219</li>
-</ul>
-</li>
-<li>Section 011:
-<ul>
-<li>Date: <em>May 16, 2026</em></li>
-<li>Time: 11.30am-1.30pm</li>
-<li>Location: Gore Hall 219</li>
-</ul>
-</li>
-</ul>
-<h2 id="course-syllabus">Course Syllabus<span class="btn cstyle anchor copyanchor scrollanchor link noborder notitle interactive"><button type="button" title="Copy link to clipboard"><i class="fa-fw fas fa-link fa-lg"></i></button></span></h2>
-<details>
-  <summary style="cursor:pointer; font-weight:bold;">
-    📄 Show Syllabus
-  </summary>
-  <div style="margin-top:1rem;">
-    <iframe
-      src="./syllabus/FINC462-662_Syllabus_Spring2026.pdf"
-      style="width:100%; height:700px; border:none;">
-    </iframe>
-  </div>
-</details>
 
   <footer class="footline">
   </footer>
@@ -309,7 +200,7 @@
         </div>
         <div class="R-sidebarmenu R-shortcutmenu-homelinks">
           <ul class="space collapsible-menu">
-            <li class="active " data-nav-url="/FINC462-662-SP2026/index.html"><a class="padding" href="/FINC462-662-SP2026/index.html"><i class="fa-fw fas fa-home"></i> Home</a></li>
+            <li class="" data-nav-url="/FINC462-662-SP2026/index.html"><a class="padding" href="/FINC462-662-SP2026/index.html"><i class="fa-fw fas fa-home"></i> Home</a></li>
           </ul>
         </div>
         <div class="R-menu-divider default-animation">
@@ -327,7 +218,7 @@
         <div class="R-sidebarmenu R-shortcutmenu-main">
           <ul class="enlarge morespace collapsible-menu">
             <li class="" data-nav-url="/FINC462-662-SP2026/calendar/index.html"><a class="padding" href="/FINC462-662-SP2026/calendar/index.html">Calendar</a></li>
-            <li class="" data-nav-url="/FINC462-662-SP2026/lectures/index.html"><input type="checkbox" id="R-section-bd2d5f2640929874ad03ea9fdcb748e9" aria-controls="R-subsections-bd2d5f2640929874ad03ea9fdcb748e9"><label for="R-section-bd2d5f2640929874ad03ea9fdcb748e9"><i class="fa-fw fas fa-chevron-right"></i><span class="a11y-only">Submenu Lectures</span></label><a class="padding" href="/FINC462-662-SP2026/lectures/index.html">Lectures</a><ul id="R-subsections-bd2d5f2640929874ad03ea9fdcb748e9" class="collapsible-menu">
+            <li class="parent " data-nav-url="/FINC462-662-SP2026/lectures/index.html"><input type="checkbox" id="R-section-bd2d5f2640929874ad03ea9fdcb748e9" aria-controls="R-subsections-bd2d5f2640929874ad03ea9fdcb748e9" checked><label for="R-section-bd2d5f2640929874ad03ea9fdcb748e9"><i class="fa-fw fas fa-chevron-right"></i><span class="a11y-only">Submenu Lectures</span></label><a class="padding" href="/FINC462-662-SP2026/lectures/index.html">Lectures</a><ul id="R-subsections-bd2d5f2640929874ad03ea9fdcb748e9" class="collapsible-menu">
             <li class="" data-nav-url="/FINC462-662-SP2026/lectures/lecture_01/index.html"><a class="padding" href="/FINC462-662-SP2026/lectures/lecture_01/index.html">Lecture 01</a></li>
             <li class="" data-nav-url="/FINC462-662-SP2026/lectures/lecture_02/index.html"><a class="padding" href="/FINC462-662-SP2026/lectures/lecture_02/index.html">Lecture 02</a></li>
             <li class="" data-nav-url="/FINC462-662-SP2026/lectures/lecture_03/index.html"><a class="padding" href="/FINC462-662-SP2026/lectures/lecture_03/index.html">Lecture 03</a></li>
@@ -335,7 +226,7 @@
             <li class="" data-nav-url="/FINC462-662-SP2026/lectures/lecture_05/index.html"><a class="padding" href="/FINC462-662-SP2026/lectures/lecture_05/index.html">Lecture 05</a></li>
             <li class="" data-nav-url="/FINC462-662-SP2026/lectures/lecture_06/index.html"><a class="padding" href="/FINC462-662-SP2026/lectures/lecture_06/index.html">Lecture 06</a></li>
             <li class="" data-nav-url="/FINC462-662-SP2026/lectures/lecture_07/index.html"><a class="padding" href="/FINC462-662-SP2026/lectures/lecture_07/index.html">Lecture 07</a></li>
-            <li class="" data-nav-url="/FINC462-662-SP2026/lectures/lecture_08/index.html"><a class="padding" href="/FINC462-662-SP2026/lectures/lecture_08/index.html">Lecture 08</a></li></ul></li>
+            <li class="active " data-nav-url="/FINC462-662-SP2026/lectures/lecture_08/index.html"><a class="padding" href="/FINC462-662-SP2026/lectures/lecture_08/index.html">Lecture 08</a></li></ul></li>
             <li class="" data-nav-url="/FINC462-662-SP2026/assignments/index.html"><input type="checkbox" id="R-section-d1d35e55c4e3f1a45d4eee8f96a625af" aria-controls="R-subsections-d1d35e55c4e3f1a45d4eee8f96a625af"><label for="R-section-d1d35e55c4e3f1a45d4eee8f96a625af"><i class="fa-fw fas fa-chevron-right"></i><span class="a11y-only">Submenu Assignments</span></label><a class="padding" href="/FINC462-662-SP2026/assignments/index.html">Assignments</a><ul id="R-subsections-d1d35e55c4e3f1a45d4eee8f96a625af" class="collapsible-menu">
             <li class="" data-nav-url="/FINC462-662-SP2026/assignments/assignment_01/index.html"><a class="padding" href="/FINC462-662-SP2026/assignments/assignment_01/index.html">Assignment 01</a></li>
             <li class="" data-nav-url="/FINC462-662-SP2026/assignments/assignment_02/index.html"><a class="padding" href="/FINC462-662-SP2026/assignments/assignment_02/index.html">Assignment 02</a></li>

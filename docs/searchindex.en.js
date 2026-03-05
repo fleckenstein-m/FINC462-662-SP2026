@@ -112,6 +112,14 @@ var relearn_searchindex = [
     "uri": "/FINC462-662-SP2026/lectures/lecture_07/index.html"
   },
   {
+    "breadcrumb": "FINC409/609 - Fixed Income Securities \u003e Lectures",
+    "content": "Lecture Materials\rLecture 8 Slides Lecture 8 Quiz Miscellaneous\rMacaulay Duration Modified Duration Modified Duration with Term Structure",
+    "description": "Lecture Materials\rLecture 8 Slides Lecture 8 Quiz Miscellaneous\rMacaulay Duration Modified Duration Modified Duration with Term Structure",
+    "tags": [],
+    "title": "Lecture 08",
+    "uri": "/FINC462-662-SP2026/lectures/lecture_08/index.html"
+  },
+  {
     "breadcrumb": "FINC409/609 - Fixed Income Securities",
     "content": "",
     "description": "",
