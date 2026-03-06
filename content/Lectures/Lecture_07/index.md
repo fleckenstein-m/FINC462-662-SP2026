@@ -14,4 +14,4 @@ weight: 3
 ## Miscellaneous
 
 - [Practice Problems](../../inclass-problems/Lecture_07_ClassExercises.html)
-
+- [Why Boostrapping?](../../lectures-slides/Lecture_07_BoostrappingNote.pdf)
