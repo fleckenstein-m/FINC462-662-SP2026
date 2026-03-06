@@ -2,10 +2,10 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Calendar :: FINC409/609 - Fixed Income Securities</title>
-    <link>https://fleckenstein-m.github.io/FINC462-662-SP2026/calendar/index.html</link>
+    <link>http://localhost:1313/FINC462-662-SP2026/calendar/index.html</link>
     <description>Course Calendar&#xD;Date Day Lecture Assignment Due 2026-02-03 Tuesday Lecture 01 (Introduction to Fixed Income Markets) — 2026-02-05 Thursday Lecture 02 (The U.S. Treasury Market) — 2026-02-10 Tuesday Lecture 03a (Price-Quoting Conventions in the U.S. Treasury Market) Assignment 01 2026-02-12 Thursday Lecture 03b (Price-Quoting Conventions in the U.S. Treasury Market) 2026-02-17 Tuesday Lecture 4 (Bond Pricing Fundamentals) Assignment 02 2026-02-19 Thursday Lecture 5 (Bond Pricing) 2026-02-24 Tuesday Lecture 5b (Bond Pricing) Assignment 03 2026-02-26 Thursday Lecture 6 (Bond Yields and Bond Pricing by Replication) 2026-03-03 Tuesday Lecture 6b (Bond Yields and Bond Pricing by Replication) Assignment 04</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <atom:link href="https://fleckenstein-m.github.io/FINC462-662-SP2026/calendar/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/FINC462-662-SP2026/calendar/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
