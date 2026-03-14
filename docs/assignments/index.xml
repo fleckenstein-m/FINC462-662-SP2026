@@ -2,37 +2,51 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Assignments :: FINC409/609 - Fixed Income Securities</title>
-    <link>http://localhost:1313/FINC462-662-SP2026/assignments/index.html</link>
+    <link>https://fleckenstein-m.github.io/FINC462-662-SP2026/assignments/index.html</link>
     <description>Geltzeiler Trading Center (Purnell Hall 114)&#xA;This table shows the days/times when no classes are scheduled in the Geltzeiler Trading Center (Purnell Hall 114). Please note that the Trading Center may be unavailable when events are scheduled on short notice.&#xA;Monday Tuesday Wednesday Thursday Friday 11:30 AM – 2:00 PM 11:00 AM – 6:00 PM 11:30 AM – 1:00 PM 11:00 AM – 5:30 PM 11:30 AM – 2:00 PM 4:00 PM – 5:30 PM 4:00 PM – 5:30 PM 4:00 PM – 5:00 PM 6:00 PM – 9:00 PM</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <atom:link href="http://localhost:1313/FINC462-662-SP2026/assignments/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://fleckenstein-m.github.io/FINC462-662-SP2026/assignments/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Assignment 01</title>
-      <link>http://localhost:1313/FINC462-662-SP2026/assignments/assignment_01/index.html</link>
+      <link>https://fleckenstein-m.github.io/FINC462-662-SP2026/assignments/assignment_01/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/FINC462-662-SP2026/assignments/assignment_01/index.html</guid>
+      <guid>https://fleckenstein-m.github.io/FINC462-662-SP2026/assignments/assignment_01/index.html</guid>
       <description>Problem Set</description>
     </item>
     <item>
       <title>Assignment 02</title>
-      <link>http://localhost:1313/FINC462-662-SP2026/assignments/assignment_02/index.html</link>
+      <link>https://fleckenstein-m.github.io/FINC462-662-SP2026/assignments/assignment_02/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/FINC462-662-SP2026/assignments/assignment_02/index.html</guid>
+      <guid>https://fleckenstein-m.github.io/FINC462-662-SP2026/assignments/assignment_02/index.html</guid>
       <description>Problem Set</description>
     </item>
     <item>
       <title>Assignment 03</title>
-      <link>http://localhost:1313/FINC462-662-SP2026/assignments/assignment_03/index.html</link>
+      <link>https://fleckenstein-m.github.io/FINC462-662-SP2026/assignments/assignment_03/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/FINC462-662-SP2026/assignments/assignment_03/index.html</guid>
+      <guid>https://fleckenstein-m.github.io/FINC462-662-SP2026/assignments/assignment_03/index.html</guid>
       <description>Problem Set</description>
     </item>
     <item>
       <title>Assignment 04</title>
-      <link>http://localhost:1313/FINC462-662-SP2026/assignments/assignment_04/index.html</link>
+      <link>https://fleckenstein-m.github.io/FINC462-662-SP2026/assignments/assignment_04/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/FINC462-662-SP2026/assignments/assignment_04/index.html</guid>
+      <guid>https://fleckenstein-m.github.io/FINC462-662-SP2026/assignments/assignment_04/index.html</guid>
+      <description>Problem Set</description>
+    </item>
+    <item>
+      <title>Assignment 05</title>
+      <link>https://fleckenstein-m.github.io/FINC462-662-SP2026/assignments/assignment_05/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://fleckenstein-m.github.io/FINC462-662-SP2026/assignments/assignment_05/index.html</guid>
+      <description>Problem Set</description>
+    </item>
+    <item>
+      <title>Assignment 06</title>
+      <link>https://fleckenstein-m.github.io/FINC462-662-SP2026/assignments/assignment_06/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://fleckenstein-m.github.io/FINC462-662-SP2026/assignments/assignment_06/index.html</guid>
       <description>Problem Set</description>
     </item>
   </channel>

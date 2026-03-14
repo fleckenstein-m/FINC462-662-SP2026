@@ -20,4 +20,11 @@ weight: 1
 | 2026-02-24     | Tuesday      | Lecture 5b (Bond Pricing)                                                     |  **Assignment 03**  |
 | 2026-02-26     | Thursday     | Lecture 6  (Bond Yields and Bond Pricing by Replication)                      |                     |
 |                                                                                                                                     |
-| 2026-03-03     | Tuesday      | Lecture 6b  (Bond Yields and Bond Pricing by Replication)                     |  **Assignment 04**  |
+| 2026-03-03     | Tuesday      | Lecture 6b (Bond Yields and Bond Pricing by Replication)                      |  **Assignment 04**  |
+| 2026-03-05     | Thursday     | Lecture 7  (Term Structure of Interest Rates)                                 |                     |
+|                                                                                                                                     |
+| 2026-03-10     | Tuesday      | Lecure 7b  (Term Structure of Interest Rates) & Midterm Review                |                     |
+| 2026-03-12     | Thursday     | Midterm 01                                                                    |                     |
+|                                                                                                                                     |
+| 2026-03-17     | Tuesday      | Lecure 8  (Duration) & Midterm Discussion                                     |                     |
+| 2026-03-19     | Thursday     | Lecture 8b (Duration)                                                         |                     |
