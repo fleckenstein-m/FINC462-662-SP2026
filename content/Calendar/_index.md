@@ -26,5 +26,5 @@ weight: 1
 | 2026-03-10     | Tuesday      | Lecure 7b  (Term Structure of Interest Rates) & Midterm Review                |                     |
 | 2026-03-12     | Thursday     | Midterm 01                                                                    |                     |
 |                                                                                                                                     |
-| 2026-03-17     | Tuesday      | Lecure 8  (Duration) & Midterm Discussion                                     |                     |
-| 2026-03-19     | Thursday     | Lecture 8b (Duration)                                                         |                     |
+| 2026-03-17     | Tuesday      | Midterm Discussion                                                            |                     |
+| 2026-03-19     | Thursday     | Lecture 8 (Duration)                                                          |                     |
