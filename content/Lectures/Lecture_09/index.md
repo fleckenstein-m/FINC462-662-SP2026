@@ -8,7 +8,7 @@ weight: 3
 ## Lecture Materials
 
 - [Lecture 9 Slides](../../lecture-slides/Lecture-09_noSol.html)
-- [Lecture 9 Quiz](../../quizzes/)
+- [Lecture 9 Quiz](../../quizzes/Lecture_09_Quiz.html)
 
 
 ## Miscellaneous

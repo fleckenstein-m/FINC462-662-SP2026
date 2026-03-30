@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FINC 409/609 Fixed Income Securities</title>
+  <style>
+    :root {
+      --bg: #f6f8fb;
+      --card: #ffffff;
+      --text: #172033;
+      --muted: #667085;
+      --line: #d9e0ea;
+      --accent: #2146c7;
+      --accent-soft: #eef3ff;
+      --good: #0f8a4b;
+      --good-soft: #ecfdf3;
+      --bad: #b42318;
+      --bad-soft: #fff1f0;
+      --shadow: 0 10px 25px rgba(15, 23, 42, 0.07);
+      --radius: 16px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Inter, Arial, Helvetica, sans-serif;
+      background: linear-gradient(180deg, #f4f7fc 0%, #eef3fa 100%);
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    .wrap {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 32px 18px 60px;
+    }
+
+    .hero {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 28px 28px 22px;
+      box-shadow: var(--shadow);
+      margin-bottom: 22px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      background: var(--accent-soft);
+      color: var(--accent);
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      margin-bottom: 12px;
+    }
+
+    h1 {
+      margin: 0 0 10px;
+      font-size: clamp(28px, 4vw, 40px);
+      line-height: 1.15;
+    }
+
+    .subtitle {
+      margin: 0 0 14px;
+      color: var(--muted);
+      font-size: 16px;
+      max-width: 760px;
+    }
+
+    .meta {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .meta-card {
+      background: #fbfcff;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 12px 14px;
+    }
+
+    .meta-card .label {
+      display: block;
+      font-size: 12px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 4px;
+    }
+
+    .meta-card .value {
+      font-weight: 700;
+      font-size: 15px;
+    }
+
+    .toolbar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(246, 248, 251, 0.92);
+      backdrop-filter: blur(10px);
+      padding: 12px 0 14px;
+      margin-bottom: 8px;
+    }
+
+    .toolbar-inner {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 14px 16px;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .score {
+      font-weight: 700;
+      font-size: 15px;
+    }
+
+    .score .muted {
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    button {
+      border: 0;
+      border-radius: 12px;
+      padding: 10px 14px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform 0.12s ease, opacity 0.12s ease, box-shadow 0.12s ease;
+    }
+
+    button:hover {
+      transform: translateY(-1px);
+    }
+
+    button.primary {
+      background: var(--accent);
+      color: #fff;
+      box-shadow: 0 8px 18px rgba(33, 70, 199, 0.18);
+    }
+
+    button.secondary {
+      background: #f2f5fb;
+      color: var(--text);
+      border: 1px solid var(--line);
+    }
+
+    .quiz {
+      display: grid;
+      gap: 18px;
+    }
+
+    .question-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 20px;
+      box-shadow: var(--shadow);
+    }
+
+    .question-top {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      margin-bottom: 14px;
+    }
+
+    .q-number {
+      width: 36px;
+      height: 36px;
+      min-width: 36px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-weight: 800;
+    }
+
+    .question-text {
+      margin: 0;
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    .formula {
+      font-family: "Cambria Math", "Times New Roman", serif;
+      background: #f8fafc;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 2px 8px;
+      white-space: nowrap;
+    }
+
+    .options {
+      display: grid;
+      gap: 10px;
+      margin: 12px 0 8px;
+    }
+
+    .option {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 12px 14px;
+      background: #fff;
+      transition: border-color 0.12s ease, background 0.12s ease, box-shadow 0.12s ease;
+      cursor: pointer;
+    }
+
+    .option:hover {
+      border-color: #b8c6eb;
+      box-shadow: 0 6px 14px rgba(15, 23, 42, 0.04);
+    }
+
+    .option input {
+      margin-top: 3px;
+      transform: scale(1.15);
+      accent-color: var(--accent);
+    }
+
+    .option.correct {
+      border-color: rgba(15, 138, 75, 0.35);
+      background: var(--good-soft);
+    }
+
+    .option.incorrect {
+      border-color: rgba(180, 35, 24, 0.35);
+      background: var(--bad-soft);
+    }
+
+    .feedback {
+      display: none;
+      margin-top: 12px;
+      border-radius: 14px;
+      padding: 14px 16px;
+      font-size: 15px;
+      border: 1px solid transparent;
+    }
+
+    .feedback.show { display: block; }
+
+    .feedback.good {
+      background: var(--good-soft);
+      color: #0a5e34;
+      border-color: rgba(15, 138, 75, 0.18);
+    }
+
+    .feedback.bad {
+      background: var(--bad-soft);
+      color: #8b1d14;
+      border-color: rgba(180, 35, 24, 0.18);
+    }
+
+    .feedback strong {
+      display: inline-block;
+      margin-bottom: 4px;
+    }
+
+    .footer-note {
+      margin-top: 24px;
+      color: var(--muted);
+      font-size: 14px;
+      text-align: center;
+    }
+
+    @media (max-width: 700px) {
+      .hero, .question-card { padding: 18px; }
+      .question-text { font-size: 17px; }
+      .toolbar-inner { align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <section class="hero">
+      <div class="eyebrow">FINC 409/609 • Fixed Income Securities</div>
+      <h1>Lecture 08 Quiz</h1>
+      <p class="subtitle">
+        Multiple-choice quiz on modified duration, convexity, and portfolio convexity.
+      </p>
+
+      
+    </section>
+
+    <div class="toolbar">
+      <div class="toolbar-inner">
+        <div class="score" id="scoreBox">
+          Answered <span id="answeredCount">0</span>/10
+          <span class="muted">|</span>
+          Currently correct <span id="correctCount">0</span>/10
+        </div>
+        <div class="buttons">
+          <button class="secondary" id="resetBtn" type="button">Reset quiz</button>
+          <button class="primary" id="scrollTopBtn" type="button">Back to top</button>
+        </div>
+      </div>
+    </div>
+
+    <main class="quiz" id="quiz"></main>
+
+    <div class="footer-note">
+      Standalone HTML quiz. No external libraries required.
+    </div>
+  </div>
+
+  <script>
+    const questions = [
+      {
+        prompt: "Which of the following is the correct interpretation of Modified Duration?",
+        options: [
+          "The bond’s coupon rate converted into semiannual terms.",
+          "The percent price change implied by a tangent-line approximation for a small change in yield.",
+          "The accrued interest earned since the last coupon date.",
+          "The bond’s time to maturity measured in half-years."
+        ],
+        answer: 1,
+        explanation: "The slides describe modified duration as the percentage price change implied when the price-yield relation is approximated by the tangent line near the current yield."
+      },
+      {
+        prompt: "Why is a convexity term added to the duration-based price-change approximation?",
+        options: [
+          "To adjust for the curved shape of the price-yield relation and improve accuracy for larger yield changes.",
+          "To convert dirty price into clean price.",
+          "To estimate default probability from coupon payments.",
+          "To eliminate all interest-rate risk."
+        ],
+        answer: 0,
+        explanation: "A duration-only estimate becomes less accurate as yield changes get larger, so convexity is added to reflect curvature."
+      },
+      {
+        prompt: "Which expression matches the duration-plus-convexity approximation for percentage price change?",
+        options: [
+          "&Delta;P/P = MD(y) &times; &Delta;y &minus; 0.5 &times; CX &times; (&Delta;y)<sup>2</sup>",
+          "&Delta;P/P = &minus;MD(y) &times; &Delta;y + 0.5 &times; CX &times; (&Delta;y)<sup>2</sup>",
+          "&Delta;P/P = &minus;CX &times; &Delta;y + 0.5 &times; MD(y) &times; (&Delta;y)<sup>2</sup>",
+          "&Delta;P/P = &minus;MD(y) &times; &Delta;y &minus; 0.5 &times; CX &times; (&Delta;y)<sup>2</sup>"
+        ],
+        answer: 1,
+        explanation: "The approximation is: ΔP/P = −MD(y) × Δy + 1/2 × CX × (Δy)^2."
+      },
+      {
+        prompt: "In that approximation, why does the convexity adjustment help for both yield increases and yield decreases?",
+        options: [
+          "Because convexity is always equal to modified duration squared.",
+          "Because the convexity term uses (&Delta;y)<sup>2</sup>, which is positive in either direction.",
+          "Because yield changes are always entered as positive values.",
+          "Because coupon rates move one-for-one with yields."
+        ],
+        answer: 1,
+        explanation: "The convexity term depends on the square of the yield change, so it enters positively whether yields rise or fall. It does not mean price always rises; it means the curve matters in both directions."
+      },
+      {
+        prompt: "A semiannual bond has a per-period convexity of 48. What is its annual convexity?",
+        options: [
+          "24",
+          "48",
+          "12",
+          "96"
+        ],
+        answer: 2,
+        explanation: "For semiannual bonds, annual convexity equals per-period convexity divided by the square of the number of periods per year: 48 &divide; 2<sup>2</sup> = 12."
+      },
+      {
+        prompt: "What are the weights used in calculating portfolio convexity?",
+        options: [
+          "Equal weights across all bonds.",
+          "Weights based on market value: w<sub>b</sub> = n<sub>b</sub> &times; P<sub>b</sub> / P<sub>p</sub>.",
+          "Weights based only on years to maturity.",
+          "Weights based only on coupon income."
+        ],
+        answer: 1,
+        explanation: "The weights are each position’s share of total portfolio market value. Portfolio convexity is a weighted average of individual convexities."
+      },
+      {
+        prompt: "Bond A has a portfolio weight of 60% and convexity 10. Bond B has a portfolio weight of 40% and convexity 20. What is the portfolio convexity?",
+        options: [
+          "12",
+          "14",
+          "15",
+          "16"
+        ],
+        answer: 1,
+        explanation: "Portfolio convexity is the weighted average: 0.60 &times; 10 + 0.40 &times; 20 = 6 + 8 = 14."
+      },
+      {
+        prompt: "Holding maturity and yield constant, which bond should have greater price volatility?",
+        options: [
+          "The higher-coupon bond.",
+          "The lower-coupon bond.",
+          "Both have the same price volatility.",
+          "The bond with the larger face value."
+        ],
+        answer: 1,
+        explanation: "For a given maturity and yield, a lower coupon rate implies greater price volatility."
+      },
+      {
+        prompt: "Holding coupon rate and yield constant, which bond should have greater price volatility?",
+        options: [
+          "The shorter-maturity bond.",
+          "The longer-maturity bond.",
+          "Both have the same price volatility.",
+          "The bond quoted at a premium."
+        ],
+        answer: 1,
+        explanation: "For a given coupon rate and yield, longer maturity means greater price volatility."
+      },
+      {
+        prompt: "For a large equal-sized yield move up or down, which statement is correct?",
+        options: [
+          "The percentage price increase from a yield drop is greater than the percentage price decrease from an equal yield rise.",
+          "The percentage price decrease from a yield rise is always greater than the percentage price increase from an equal yield drop.",
+          "The two percentage price moves are exactly equal in magnitude.",
+          "Duration alone guarantees symmetry for all yield changes."
+        ],
+        answer: 0,
+        explanation: "Because the price-yield relation is convex, for a large equal-sized change in basis points, the price increase from a yield decline exceeds the price decrease from an equal yield increase."
+      }
+    ];
+
+    const state = {
+      answers: Array(questions.length).fill(null)
+    };
+
+    const quizEl = document.getElementById("quiz");
+    const answeredCountEl = document.getElementById("answeredCount");
+    const correctCountEl = document.getElementById("correctCount");
+
+    function renderQuiz() {
+      quizEl.innerHTML = "";
+
+      questions.forEach((q, qIndex) => {
+        const card = document.createElement("section");
+        card.className = "question-card";
+        card.id = `question-${qIndex}`;
+
+        const optionsHtml = q.options.map((opt, optIndex) => `
+          <label class="option" data-question="${qIndex}" data-option="${optIndex}">
+            <input
+              type="radio"
+              name="question-${qIndex}"
+              value="${optIndex}"
+              aria-label="Question ${qIndex + 1}, option ${optIndex + 1}"
+            />
+            <span>${opt}</span>
+          </label>
+        `).join("");
+
+        card.innerHTML = `
+          <div class="question-top">
+            <div class="q-number">${qIndex + 1}</div>
+            <p class="question-text">${q.prompt}</p>
+          </div>
+          <div class="options">${optionsHtml}</div>
+          <div class="feedback" id="feedback-${qIndex}" aria-live="polite"></div>
+        `;
+
+        quizEl.appendChild(card);
+      });
+
+      attachEvents();
+      updateScore();
+    }
+
+    function attachEvents() {
+      document.querySelectorAll('.option input').forEach((input) => {
+        input.addEventListener('change', (e) => {
+          const qIndex = Number(e.target.name.replace('question-', ''));
+          const selected = Number(e.target.value);
+          state.answers[qIndex] = selected;
+          evaluateQuestion(qIndex);
+          updateScore();
+        });
+      });
+    }
+
+    function evaluateQuestion(qIndex) {
+      const q = questions[qIndex];
+      const selected = state.answers[qIndex];
+      const feedback = document.getElementById(`feedback-${qIndex}`);
+      const labels = document.querySelectorAll(`label[data-question="${qIndex}"]`);
+
+      labels.forEach((label) => {
+        label.classList.remove('correct', 'incorrect');
+        const optionIndex = Number(label.dataset.option);
+        if (selected !== null && optionIndex === q.answer) {
+          label.classList.add('correct');
+        }
+        if (selected !== null && optionIndex === selected && selected !== q.answer) {
+          label.classList.add('incorrect');
+        }
+      });
+
+      if (selected === null) {
+        feedback.className = 'feedback';
+        feedback.innerHTML = '';
+        return;
+      }
+
+      const isCorrect = selected === q.answer;
+      feedback.className = `feedback show ${isCorrect ? 'good' : 'bad'}`;
+      feedback.innerHTML = `
+        <strong>${isCorrect ? 'Correct.' : 'Not quite.'}</strong><br>
+        ${q.explanation}
+      `;
+    }
+
+    function updateScore() {
+      const answered = state.answers.filter(v => v !== null).length;
+      const correct = state.answers.filter((v, i) => v === questions[i].answer).length;
+      answeredCountEl.textContent = answered;
+      correctCountEl.textContent = correct;
+    }
+
+    function resetQuiz() {
+      state.answers = Array(questions.length).fill(null);
+      renderQuiz();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    document.getElementById('resetBtn').addEventListener('click', resetQuiz);
+    document.getElementById('scrollTopBtn').addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    renderQuiz();
+  </script>
+</body>
+</html>
