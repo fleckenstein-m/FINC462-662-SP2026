@@ -144,6 +144,14 @@ var relearn_searchindex = [
     "uri": "/FINC462-662-SP2026/lectures/lecture_09/index.html"
   },
   {
+    "breadcrumb": "FINC409/609 - Fixed Income Securities \u003e Lectures",
+    "content": "Lecture Materials\rLecture 10 Slides Lecture 10 Quiz Miscellaneous\rPractice Problems Bond ETF Example",
+    "description": "Lecture Materials\rLecture 10 Slides Lecture 10 Quiz Miscellaneous\rPractice Problems Bond ETF Example",
+    "tags": [],
+    "title": "Lecture 10",
+    "uri": "/FINC462-662-SP2026/lectures/lecture_10/index.html"
+  },
+  {
     "breadcrumb": "FINC409/609 - Fixed Income Securities",
     "content": "",
     "description": "",
