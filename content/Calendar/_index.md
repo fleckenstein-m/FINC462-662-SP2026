@@ -28,3 +28,15 @@ weight: 1
 |                                                                                                                                     |
 | 2026-03-17     | Tuesday      | Midterm Discussion                                                            |                     |
 | 2026-03-19     | Thursday     | Lecture 8 (Duration)                                                          |                     |
+|                                                                                                                                     |
+| 2026-03-24     | Tuesday      | Spring Break                                                                  |                     |
+| 2026-03-26     | Thursday     | Spring Break                                                                  |                     |
+|                                                                                                                                     |
+| 2026-03-31     | Tuesday      | Lecture 8b (Duration)                                                         |                     |
+| 2026-04-02     | Thursday     | Lecture 9 (Convexity)                                                         |  **Assignment 06**  |
+|                                                                                                                                     |
+| 2026-04-07     | Tuesday      | Lecture 10  (Hedging)                                                         |                     |
+| 2026-04-09     | Thursday     | Lecture 10b (Hedging)                                                         |                     |
+|                                                                                                                                     |
+| 2026-04-14     | Tuesday      | Midterm 02                                                                    |                     |
+| 2026-04-16     | Thursday     | Lecture 11  (Bond Trading Strategies)                                         |                     |
