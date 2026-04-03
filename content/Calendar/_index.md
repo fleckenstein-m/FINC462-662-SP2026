@@ -33,9 +33,9 @@ weight: 1
 | 2026-03-26     | Thursday     | Spring Break                                                                  |                     |
 |                                                                                                                                     |
 | 2026-03-31     | Tuesday      | Lecture 8b (Duration)                                                         |                     |
-| 2026-04-02     | Thursday     | Lecture 9 (Convexity)                                                         |  **Assignment 06**  |
+| 2026-04-02     | Thursday     | Lecture 9 (Convexity)                                                         |                     |
 |                                                                                                                                     |
-| 2026-04-07     | Tuesday      | Lecture 10  (Hedging)                                                         |                     |
+| 2026-04-07     | Tuesday      | Lecture 10  (Hedging)                                                         |  **Assignment 06**  |
 | 2026-04-09     | Thursday     | Lecture 10b (Hedging)                                                         |                     |
 |                                                                                                                                     |
 | 2026-04-14     | Tuesday      | Midterm 02                                                                    |                     |
