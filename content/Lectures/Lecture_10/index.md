@@ -14,6 +14,6 @@ weight: 3
 ## Miscellaneous
 
 
-- [Practice Problems](../../inclass-problems/Lecture_10_ClassExercises_noSol.html)
+- [Practice Problems](../../inclass-problems/Lecture_10_ClassExercises.html)
 - [Bond ETF Example](../../inclass-problems/Lecture_10_VanguardModDuration.xlsx)
 
