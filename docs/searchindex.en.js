@@ -72,6 +72,14 @@ var relearn_searchindex = [
     "uri": "/FINC462-662-SP2026/assignments/assignment_07/index.html"
   },
   {
+    "breadcrumb": "FINC409/609 - Fixed Income Securities \u003e Assignments",
+    "content": "Problem Set",
+    "description": "Problem Set",
+    "tags": [],
+    "title": "Assignment 08",
+    "uri": "/FINC462-662-SP2026/assignments/assignment_08/index.html"
+  },
+  {
     "breadcrumb": "FINC409/609 - Fixed Income Securities \u003e Lectures",
     "content": "Lecture Materials\rLecture 2 Slides Lecture 2 Quiz Miscellaneous",
     "description": "Lecture Materials\rLecture 2 Slides Lecture 2 Quiz Miscellaneous",
