@@ -7,7 +7,7 @@ weight: 3
 
 ## Lecture Materials
 
-- [Lecture 10 Slides](../../lecture-slides/Lecture-10_noSol.html)
+- [Lecture 10 Slides](../../lecture-slides/Lecture-10.html)
 - [Lecture 10 Quiz](../../quizzes/Lecture_10_Quiz.html)
 
 
