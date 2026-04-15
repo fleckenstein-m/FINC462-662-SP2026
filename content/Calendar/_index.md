@@ -40,3 +40,9 @@ weight: 1
 |                                                                                                                                     |
 | 2026-04-14     | Tuesday      | Midterm 02                                                                    |                     |
 | 2026-04-16     | Thursday     | Lecture 11  (Bond Trading Strategies)                                         |                     |
+|                                                                                                                                     |
+| 2026-04-21     | Tuesday      | Midterm 02 Discussion                                                         |                     |
+| 2026-04-23     | Thursday     | Lecture 12  (Forwards)                                                        |                     |
+|                                                                                                                                     |
+| 2026-04-28     | Tuesday      | Lecture 13  (Interest Rate Swaps)                                             | **Assignment 09**   |
+| 2026-04-30     | Thursday     | Lecture 13b  (Interest Rate Swaps)                                            |                     |

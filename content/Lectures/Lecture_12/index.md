@@ -1,0 +1,17 @@
+---
+title: "Lecture 12"
+weight: 3
+---
+
+
+
+## Lecture Materials
+
+- [Lecture 12 Slides](../../lecture-slides/Lecture-12_noSol.html)
+
+
+## Miscellaneous
+
+- [Practice Problems](../../inclass-problems/Lecture_12_ClassExercises.html)
+
+
