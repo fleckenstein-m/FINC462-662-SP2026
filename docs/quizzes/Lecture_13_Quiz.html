@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FINC409/609 - Fixed Income Securities</title>
+  <style>
+    :root{
+      --bg:#f6f8fb;
+      --card:#ffffff;
+      --text:#1f2937;
+      --muted:#6b7280;
+      --border:#d7dee8;
+      --accent:#1d4ed8;
+      --accent-soft:#e8f0ff;
+      --correct:#166534;
+      --correct-bg:#ecfdf3;
+      --correct-border:#bbf7d0;
+      --incorrect:#991b1b;
+      --incorrect-bg:#fef2f2;
+      --incorrect-border:#fecaca;
+      --warning:#92400e;
+      --warning-bg:#fff7ed;
+      --warning-border:#fed7aa;
+      --shadow:0 10px 30px rgba(17, 24, 39, 0.08);
+      --radius:18px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Inter, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top right, rgba(29,78,216,0.08), transparent 24%),
+        radial-gradient(circle at top left, rgba(37,99,235,0.06), transparent 18%),
+        var(--bg);
+      line-height: 1.5;
+    }
+
+    .container {
+      width: min(1080px, calc(100% - 32px));
+      margin: 32px auto 56px;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #123a9b, #1d4ed8 55%, #3b82f6);
+      color: white;
+      border-radius: 24px;
+      padding: 28px 28px 24px;
+      box-shadow: var(--shadow);
+    }
+
+    .hero .course-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.85);
+      margin-bottom: 10px;
+    }
+
+    .hero h1 {
+      margin: 0 0 8px;
+      font-size: clamp(1.9rem, 3.5vw, 2.7rem);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+    }
+
+    .hero p {
+      margin: 8px 0 0;
+      font-size: 1rem;
+      max-width: 820px;
+      color: rgba(255,255,255,0.92);
+    }
+
+    .hero .meta {
+      margin-top: 16px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .pill {
+      background: rgba(255,255,255,0.14);
+      border: 1px solid rgba(255,255,255,0.2);
+      color: #fff;
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: 0.92rem;
+      backdrop-filter: blur(8px);
+    }
+
+    .toolbar,
+    .score-panel {
+      margin-top: 18px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px 18px;
+      box-shadow: var(--shadow);
+    }
+
+    .toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .toolbar .left,
+    .toolbar .right {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+
+    button {
+      appearance: none;
+      border: 1px solid transparent;
+      border-radius: 12px;
+      padding: 10px 14px;
+      font-size: 0.97rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.08s ease, box-shadow 0.15s ease, background 0.15s ease;
+    }
+
+    button:hover { transform: translateY(-1px); }
+    button:active { transform: translateY(0); }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+      box-shadow: 0 8px 18px rgba(29, 78, 216, 0.18);
+    }
+
+    .btn-secondary {
+      background: #fff;
+      color: var(--text);
+      border-color: var(--border);
+    }
+
+    .btn-small {
+      padding: 8px 12px;
+      font-size: 0.92rem;
+    }
+
+    .quiz-grid {
+      margin-top: 20px;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    .question-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .question-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 18px 20px 10px;
+      border-bottom: 1px solid rgba(215, 222, 232, 0.7);
+      background: linear-gradient(180deg, rgba(29,78,216,0.035), transparent);
+    }
+
+    .question-number {
+      width: 40px;
+      height: 40px;
+      flex: 0 0 40px;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-weight: 800;
+      border: 1px solid rgba(29,78,216,0.12);
+    }
+
+    .question-title {
+      margin: 0;
+      font-size: 1.08rem;
+      font-weight: 700;
+      line-height: 1.4;
+    }
+
+    .question-body {
+      padding: 16px 20px 20px;
+    }
+
+    .options {
+      display: grid;
+      gap: 10px;
+    }
+
+    label.option {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      padding: 12px 14px;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: #fff;
+      cursor: pointer;
+      transition: border-color 0.15s ease, background 0.15s ease, transform 0.08s ease;
+    }
+
+    label.option:hover {
+      border-color: rgba(29,78,216,0.4);
+      background: rgba(29,78,216,0.03);
+      transform: translateY(-1px);
+    }
+
+    label.option input {
+      margin-top: 2px;
+      transform: scale(1.1);
+      accent-color: var(--accent);
+    }
+
+    .option-text {
+      font-size: 0.98rem;
+    }
+
+    .question-actions {
+      margin-top: 14px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .feedback {
+      margin-top: 14px;
+      border-radius: 14px;
+      padding: 12px 14px;
+      border: 1px solid transparent;
+      display: none;
+    }
+
+    .feedback.show { display: block; }
+
+    .feedback.correct {
+      background: var(--correct-bg);
+      color: var(--correct);
+      border-color: var(--correct-border);
+    }
+
+    .feedback.incorrect {
+      background: var(--incorrect-bg);
+      color: var(--incorrect);
+      border-color: var(--incorrect-border);
+    }
+
+    .feedback.warning {
+      background: var(--warning-bg);
+      color: var(--warning);
+      border-color: var(--warning-border);
+    }
+
+    .feedback strong {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 0.98rem;
+    }
+
+    .score-panel {
+      display: none;
+    }
+
+    .score-panel.show {
+      display: block;
+    }
+
+    .score-title {
+      margin: 0 0 8px;
+      font-size: 1.18rem;
+    }
+
+    .score-big {
+      font-size: clamp(1.9rem, 4vw, 2.6rem);
+      font-weight: 800;
+      color: var(--accent);
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+    }
+
+    .score-subtext {
+      margin-top: 8px;
+      color: var(--muted);
+    }
+
+    .legend {
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .footer-note {
+      margin-top: 20px;
+      color: var(--muted);
+      font-size: 0.94rem;
+      padding: 0 4px;
+    }
+
+    .status-badge {
+      font-size: 0.9rem;
+      border: 1px solid var(--border);
+      padding: 8px 12px;
+      border-radius: 999px;
+      color: var(--muted);
+      background: #fff;
+    }
+
+    @media (max-width: 720px) {
+      .hero, .toolbar, .question-body, .question-head, .score-panel {
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+
+      .question-head {
+        gap: 12px;
+      }
+    }
+  </style>
+
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(','\\)']],
+        displayMath: [['$$','$$'], ['\\[','\\]']]
+      },
+      svg: { fontCache: 'global' },
+      options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+  <div class="container">
+    <section class="hero">
+      <div class="course-title">FINC409/609 &mdash; Fixed Income Securities</div>
+      <h1>Quiz Lecture 13: Interest Rate Swaps</h1>
+    </section>
+
+    <section class="toolbar" aria-label="Quiz controls">
+      <div class="left">
+        <button class="btn-primary" id="checkAllBtn" type="button">Check All &amp; Show Score</button>
+        <button class="btn-secondary" id="resetBtn" type="button">Reset Quiz</button>
+      </div>
+      <div class="right">
+        <span class="status-badge" id="progressBadge">0 of 10 answered</span>
+      </div>
+    </section>
+
+    <section class="score-panel" id="scorePanel" aria-live="polite">
+      <h2 class="score-title">Quiz Score</h2>
+      <div class="score-big" id="scoreText">0 / 10</div>
+      <div class="score-subtext" id="scoreSubtext">Select answers and check the quiz to see your score.</div>
+      <div class="legend">Per-question feedback appears under each item after you check it.</div>
+    </section>
+
+    <main id="quiz" class="quiz-grid" aria-label="Quiz questions"></main>
+
+
+  </div>
+
+  <script>
+    const questions = [
+      {
+        question: "In a standard fixed-for-floating interest rate swap on notional \\(N\\), what do the two counterparties exchange?",
+        options: [
+          "Periodic fixed payments against periodic floating payments on the same notional \\(N\\); the notional itself is exchanged at inception and returned at maturity.",
+          "Periodic fixed payments against periodic floating payments on the same notional \\(N\\); the notional itself is never exchanged between the counterparties.",
+          "The coupons of two different bonds, with the notional settled at maturity.",
+          "A single upfront premium in exchange for the right to receive a floating-rate loan at a later date."
+        ],
+        correctIndex: 1,
+        explanation: "In a plain-vanilla IRS the counterparties only exchange the net of the fixed and floating interest payments. The notional is used only to scale the cash flows — it is never swapped between the parties."
+      },
+      {
+        question: "In a swap with \\(m\\) payments per year, the floating-leg payment due at time \\(t\\) equals:",
+        options: [
+          "a rate negotiated today for the period \\([t-\\Delta, t]\\), applied to \\(N/m\\).",
+          "the realized spot rate \\(r(t-\\Delta, t)\\) observed at the previous reset date \\(t-\\Delta\\), applied to \\(N/m\\) — i.e. set in advance at \\(t-\\Delta\\) and paid in arrears at \\(t\\).",
+          "the forward rate \\(f(t-\\Delta, t)\\) implied by today's discount curve, applied to \\(N/m\\).",
+          "the spot rate observed at the payment date \\(t\\) itself, applied to \\(N/m\\)."
+        ],
+        correctIndex: 1,
+        explanation: "Floating coupons in a standard swap (matching a plain FRN) are set at the start of each accrual period and paid at the end — the classic set-in-advance, paid-in-arrears convention."
+      },
+      {
+        question: "Between two consecutive reset dates on a floating-rate note, the next coupon is:",
+        options: [
+          "still unknown, because the floating rate is resampled continuously.",
+          "fixed and known, because it was set at the most recent reset date and will be paid at the next reset date.",
+          "equal to the forward rate implied by the current discount curve.",
+          "recomputed on every coupon payment date using the instantaneous short rate."
+        ],
+        correctIndex: 1,
+        explanation: "Each reset locks in the coupon for the upcoming accrual period, so between resets the next coupon is already determined. Uncertainty only concerns coupons further out than the next reset."
+      },
+      {
+        question: "Why does a plain floating-rate note trade at par value on its reset dates?",
+        options: [
+          "Because FRNs are assumed to be default-free, so all discount factors equal 1.",
+          "Because the just-reset coupon for the upcoming period is the same rate used to discount that coupon, so the present value of the remaining cash flows equals the principal.",
+          "Because the issuer contractually guarantees par at every coupon date.",
+          "Because FRNs have no interest-rate sensitivity, so their price is permanently pinned to par."
+        ],
+        correctIndex: 1,
+        explanation: "At each reset the coupon is set equal to the prevailing market rate, so discounting the newly set coupon plus principal returns exactly the principal. This par-at-reset property is what makes the floating leg of a swap worth par at each reset date."
+      },
+      {
+        question: "The fixed rate \\(f\\) that makes a new \\(T\\)-year swap worth zero at inception, with \\(m\\) payments per year and zero-coupon discount factors \\(D(t_i)\\), satisfies:",
+        options: [
+          "\\( f = \\dfrac{D(T)}{\\sum_i D(t_i)} \\).",
+          "\\( f = m \\cdot \\dfrac{1 - D(T)}{\\sum_i D(t_i)} \\).",
+          "\\( f = \\dfrac{1 - D(T)}{\\sum_i D(t_i)} - 1 \\).",
+          "\\( f = 1 - D(T) \\)."
+        ],
+        correctIndex: 1,
+        explanation: "Setting PV(fixed leg) equal to PV(floating leg) = \\(N\\,[1 - D(T)]\\) and solving gives \\( f = m\\,(1 - D(T))\\big/\\sum_i D(t_i)\\). The factor \\(m\\) annualizes the per-period coupon."
+      },
+      {
+        question: "Pricing a plain-vanilla interest rate swap at inception requires:",
+        options: [
+          "a forecast of each future floating rate between inception and maturity.",
+          "only the current set of zero-coupon discount factors (equivalently, the current spot-rate curve).",
+          "the realized history of floating rates since the last reset.",
+          "the counterparty's credit spread on top of the risk-free rate."
+        ],
+        correctIndex: 1,
+        explanation: "The par swap rate formula depends only on the \\(D(t_i)\\)'s. The floating leg is valued through its par-at-reset property, so no explicit forecast of future floating rates is needed."
+      },
+      {
+        question: "A brand-new at-market swap has zero value to both counterparties because:",
+        options: [
+          "no notional has been exchanged yet between the parties.",
+          "the pay-fixed side prices as a par coupon bond, the pay-floating side prices as a floating-rate note worth par, and the two offsetting values cancel.",
+          "the expected future floating rates are assumed to be zero.",
+          "the clearinghouse mechanically nets the two legs to zero at inception."
+        ],
+        correctIndex: 1,
+        explanation: "The par swap rate is chosen so that a par coupon bond (the fixed leg) is worth the same as a par FRN (the floating leg). The two legs offset exactly, so no up-front payment changes hands."
+      },
+      {
+        question: "Some time after inception, interest rates have risen. For the counterparty paying fixed and receiving floating, the swap is now worth:",
+        options: [
+          "less than zero — rising rates hurt the pay-fixed side.",
+          "still zero — inception priced in all future rate moves.",
+          "more than zero — the fixed coupons still to be paid are below-market, while the floating coupons to be received are at the new, higher prevailing rates.",
+          "more than zero only if the yield curve becomes inverted."
+        ],
+        correctIndex: 2,
+        explanation: "When rates rise, the PV of the fixed payments the pay-fixed side owes falls, while the floating payments it is about to receive are larger. Net, the pay-fixed / receive-floating side gains, and the other side loses by the same amount."
+      },
+      {
+        question: "A portfolio manager holds a long portfolio of fixed-rate bonds and wants to hedge its exposure to rising interest rates. The appropriate swap position is:",
+        options: [
+          "receive fixed, pay floating — the swap gains when rates rise and offsets the bond losses.",
+          "pay fixed, receive floating — the swap gains when rates rise and offsets the bond losses.",
+          "receive floating only, with no fixed leg — a half-swap replicates the needed hedge.",
+          "no swap is needed; holding fixed-rate bonds is already a natural hedge against rising rates."
+        ],
+        correctIndex: 1,
+        explanation: "Long fixed-rate bonds lose value when rates rise. A pay-fixed / receive-floating swap gains value when rates rise (same logic as the previous question). Combining the two neutralizes the interest-rate exposure."
+      },
+      {
+        question: "Relative to the fixed leg, the floating leg of a plain-vanilla swap has a modified duration that is:",
+        options: [
+          "approximately equal — both legs share the same payment schedule and therefore the same duration.",
+          "much larger — the uncertainty about future floating coupons inflates rate sensitivity.",
+          "essentially just the time to the next reset date — so a pay-fixed / receive-floating swap has negative modified duration, roughly equal in magnitude to the fixed leg's.",
+          "equal to the fixed leg's duration but with the opposite sign, making the net swap duration exactly zero."
+        ],
+        correctIndex: 2,
+        explanation: "Because the floating leg resets to par on each reset date, its only remaining rate sensitivity is the short interval to the next reset — its duration is small. The fixed leg behaves like a coupon bond with a much larger duration. A pay-fixed / receive-floating swap therefore has a net duration that is negative and close in magnitude to the fixed-leg duration."
+      }
+    ];
+
+    const quizEl = document.getElementById("quiz");
+    const progressBadge = document.getElementById("progressBadge");
+    const scorePanel = document.getElementById("scorePanel");
+    const scoreText = document.getElementById("scoreText");
+    const scoreSubtext = document.getElementById("scoreSubtext");
+    const checkAllBtn = document.getElementById("checkAllBtn");
+    const resetBtn = document.getElementById("resetBtn");
+
+    function typesetMath(target) {
+      if (window.MathJax && window.MathJax.typesetPromise) {
+        window.MathJax.typesetPromise(target ? [target] : undefined).catch(() => {});
+      }
+    }
+
+    function renderQuiz() {
+      quizEl.innerHTML = "";
+      questions.forEach((q, index) => {
+        const card = document.createElement("section");
+        card.className = "question-card";
+        card.dataset.index = index;
+
+        const optionsHTML = q.options.map((option, optionIndex) => `
+          <label class="option">
+            <input type="radio" name="q${index}" value="${optionIndex}" />
+            <span class="option-text"><strong>${String.fromCharCode(65 + optionIndex)}.</strong> ${option}</span>
+          </label>
+        `).join("");
+
+        card.innerHTML = `
+          <div class="question-head">
+            <div class="question-number">${index + 1}</div>
+            <h2 class="question-title">${q.question}</h2>
+          </div>
+          <div class="question-body">
+            <div class="options" role="radiogroup" aria-label="Question ${index + 1}">
+              ${optionsHTML}
+            </div>
+            <div class="question-actions">
+              <button class="btn-small btn-primary" type="button" data-action="check" data-index="${index}">
+                Check Answer
+              </button>
+            </div>
+            <div class="feedback" id="feedback-${index}" aria-live="polite"></div>
+          </div>
+        `;
+        quizEl.appendChild(card);
+      });
+      updateProgress();
+      typesetMath(quizEl);
+    }
+
+    function getSelectedIndex(questionIndex) {
+      const selected = document.querySelector(`input[name="q${questionIndex}"]:checked`);
+      return selected ? Number(selected.value) : null;
+    }
+
+    function showFeedback(questionIndex, mode = "single") {
+      const q = questions[questionIndex];
+      const selectedIndex = getSelectedIndex(questionIndex);
+      const feedbackEl = document.getElementById(`feedback-${questionIndex}`);
+      feedbackEl.className = "feedback show";
+
+      if (selectedIndex === null) {
+        feedbackEl.classList.add("warning");
+        feedbackEl.innerHTML = `
+          <strong>No answer selected yet.</strong>
+          Choose one option, then check your answer.
+        `;
+        typesetMath(feedbackEl);
+        return { answered: false, correct: false };
+      }
+
+      if (selectedIndex === q.correctIndex) {
+        feedbackEl.classList.add("correct");
+        feedbackEl.innerHTML = `
+          <strong>Correct.</strong>
+          ${q.explanation}
+        `;
+        typesetMath(feedbackEl);
+        return { answered: true, correct: true };
+      } else {
+        feedbackEl.classList.add("incorrect");
+        const correctLetter = String.fromCharCode(65 + q.correctIndex);
+        feedbackEl.innerHTML = `
+          <strong>Incorrect.</strong>
+          Correct answer: <strong>${correctLetter}</strong>. ${q.explanation}
+        `;
+        typesetMath(feedbackEl);
+        return { answered: true, correct: false };
+      }
+    }
+
+    function updateProgress() {
+      let answered = 0;
+      questions.forEach((_, index) => {
+        if (getSelectedIndex(index) !== null) answered += 1;
+      });
+      progressBadge.textContent = `${answered} of ${questions.length} answered`;
+    }
+
+    function scoreQuiz() {
+      let answered = 0;
+      let correct = 0;
+
+      questions.forEach((_, index) => {
+        const result = showFeedback(index, "all");
+        if (result.answered) answered += 1;
+        if (result.correct) correct += 1;
+      });
+
+      const percent = Math.round((correct / questions.length) * 100);
+      scorePanel.classList.add("show");
+      scoreText.textContent = `${correct} / ${questions.length}`;
+
+      if (answered < questions.length) {
+        scoreSubtext.textContent = `You have ${correct} correct so far (${percent}%). ${questions.length - answered} question(s) are still unanswered.`;
+      } else {
+        scoreSubtext.textContent = `You answered all questions. Score: ${percent}%.`;
+      }
+    }
+
+    function resetQuiz() {
+      document.querySelectorAll('input[type="radio"]').forEach(input => {
+        input.checked = false;
+      });
+      document.querySelectorAll('.feedback').forEach(el => {
+        el.className = 'feedback';
+        el.innerHTML = '';
+      });
+      scorePanel.classList.remove("show");
+      scoreText.textContent = "0 / 10";
+      scoreSubtext.textContent = "Select answers and check the quiz to see your score.";
+      updateProgress();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    document.addEventListener("change", (event) => {
+      if (event.target.matches('input[type="radio"]')) {
+        updateProgress();
+      }
+    });
+
+    document.addEventListener("click", (event) => {
+      const btn = event.target.closest("button[data-action='check']");
+      if (!btn) return;
+      const index = Number(btn.dataset.index);
+      showFeedback(index, "single");
+      updateProgress();
+    });
+
+    checkAllBtn.addEventListener("click", scoreQuiz);
+    resetBtn.addEventListener("click", resetQuiz);
+
+    renderQuiz();
+  </script>
+</body>
+</html>

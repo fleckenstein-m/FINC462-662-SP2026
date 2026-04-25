@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FINC409/609 - Fixed Income Securities</title>
+  <style>
+    :root{
+      --bg:#f6f8fb;
+      --card:#ffffff;
+      --text:#1f2937;
+      --muted:#6b7280;
+      --border:#d7dee8;
+      --accent:#1d4ed8;
+      --accent-soft:#e8f0ff;
+      --correct:#166534;
+      --correct-bg:#ecfdf3;
+      --correct-border:#bbf7d0;
+      --incorrect:#991b1b;
+      --incorrect-bg:#fef2f2;
+      --incorrect-border:#fecaca;
+      --warning:#92400e;
+      --warning-bg:#fff7ed;
+      --warning-border:#fed7aa;
+      --shadow:0 10px 30px rgba(17, 24, 39, 0.08);
+      --radius:18px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Inter, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top right, rgba(29,78,216,0.08), transparent 24%),
+        radial-gradient(circle at top left, rgba(37,99,235,0.06), transparent 18%),
+        var(--bg);
+      line-height: 1.5;
+    }
+
+    .container {
+      width: min(1080px, calc(100% - 32px));
+      margin: 32px auto 56px;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #123a9b, #1d4ed8 55%, #3b82f6);
+      color: white;
+      border-radius: 24px;
+      padding: 28px 28px 24px;
+      box-shadow: var(--shadow);
+    }
+
+    .hero .course-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.85);
+      margin-bottom: 10px;
+    }
+
+    .hero h1 {
+      margin: 0 0 8px;
+      font-size: clamp(1.9rem, 3.5vw, 2.7rem);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+    }
+
+    .hero p {
+      margin: 8px 0 0;
+      font-size: 1rem;
+      max-width: 820px;
+      color: rgba(255,255,255,0.92);
+    }
+
+    .hero .meta {
+      margin-top: 16px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .pill {
+      background: rgba(255,255,255,0.14);
+      border: 1px solid rgba(255,255,255,0.2);
+      color: #fff;
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: 0.92rem;
+      backdrop-filter: blur(8px);
+    }
+
+    .toolbar,
+    .score-panel {
+      margin-top: 18px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px 18px;
+      box-shadow: var(--shadow);
+    }
+
+    .toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .toolbar .left,
+    .toolbar .right {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+
+    button {
+      appearance: none;
+      border: 1px solid transparent;
+      border-radius: 12px;
+      padding: 10px 14px;
+      font-size: 0.97rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.08s ease, box-shadow 0.15s ease, background 0.15s ease;
+    }
+
+    button:hover { transform: translateY(-1px); }
+    button:active { transform: translateY(0); }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+      box-shadow: 0 8px 18px rgba(29, 78, 216, 0.18);
+    }
+
+    .btn-secondary {
+      background: #fff;
+      color: var(--text);
+      border-color: var(--border);
+    }
+
+    .btn-small {
+      padding: 8px 12px;
+      font-size: 0.92rem;
+    }
+
+    .quiz-grid {
+      margin-top: 20px;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    .question-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .question-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 18px 20px 10px;
+      border-bottom: 1px solid rgba(215, 222, 232, 0.7);
+      background: linear-gradient(180deg, rgba(29,78,216,0.035), transparent);
+    }
+
+    .question-number {
+      width: 40px;
+      height: 40px;
+      flex: 0 0 40px;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-weight: 800;
+      border: 1px solid rgba(29,78,216,0.12);
+    }
+
+    .question-title {
+      margin: 0;
+      font-size: 1.08rem;
+      font-weight: 700;
+      line-height: 1.4;
+    }
+
+    .question-body {
+      padding: 16px 20px 20px;
+    }
+
+    .options {
+      display: grid;
+      gap: 10px;
+    }
+
+    label.option {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      padding: 12px 14px;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: #fff;
+      cursor: pointer;
+      transition: border-color 0.15s ease, background 0.15s ease, transform 0.08s ease;
+    }
+
+    label.option:hover {
+      border-color: rgba(29,78,216,0.4);
+      background: rgba(29,78,216,0.03);
+      transform: translateY(-1px);
+    }
+
+    label.option input {
+      margin-top: 2px;
+      transform: scale(1.1);
+      accent-color: var(--accent);
+    }
+
+    .option-text {
+      font-size: 0.98rem;
+    }
+
+    .question-actions {
+      margin-top: 14px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .feedback {
+      margin-top: 14px;
+      border-radius: 14px;
+      padding: 12px 14px;
+      border: 1px solid transparent;
+      display: none;
+    }
+
+    .feedback.show { display: block; }
+
+    .feedback.correct {
+      background: var(--correct-bg);
+      color: var(--correct);
+      border-color: var(--correct-border);
+    }
+
+    .feedback.incorrect {
+      background: var(--incorrect-bg);
+      color: var(--incorrect);
+      border-color: var(--incorrect-border);
+    }
+
+    .feedback.warning {
+      background: var(--warning-bg);
+      color: var(--warning);
+      border-color: var(--warning-border);
+    }
+
+    .feedback strong {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 0.98rem;
+    }
+
+    .score-panel {
+      display: none;
+    }
+
+    .score-panel.show {
+      display: block;
+    }
+
+    .score-title {
+      margin: 0 0 8px;
+      font-size: 1.18rem;
+    }
+
+    .score-big {
+      font-size: clamp(1.9rem, 4vw, 2.6rem);
+      font-weight: 800;
+      color: var(--accent);
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+    }
+
+    .score-subtext {
+      margin-top: 8px;
+      color: var(--muted);
+    }
+
+    .legend {
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .footer-note {
+      margin-top: 20px;
+      color: var(--muted);
+      font-size: 0.94rem;
+      padding: 0 4px;
+    }
+
+    .status-badge {
+      font-size: 0.9rem;
+      border: 1px solid var(--border);
+      padding: 8px 12px;
+      border-radius: 999px;
+      color: var(--muted);
+      background: #fff;
+    }
+
+    @media (max-width: 720px) {
+      .hero, .toolbar, .question-body, .question-head, .score-panel {
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+
+      .question-head {
+        gap: 12px;
+      }
+    }
+  </style>
+
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(','\\)']],
+        displayMath: [['$$','$$'], ['\\[','\\]']]
+      },
+      svg: { fontCache: 'global' },
+      options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+  <div class="container">
+    <section class="hero">
+      <div class="course-title">FINC409/609 &mdash; Fixed Income Securities</div>
+      <h1>Quiz Lecture 15: The TIPS-Treasury Bond Puzzle</h1>
+    </section>
+
+    <section class="toolbar" aria-label="Quiz controls">
+      <div class="left">
+        <button class="btn-primary" id="checkAllBtn" type="button">Check All &amp; Show Score</button>
+        <button class="btn-secondary" id="resetBtn" type="button">Reset Quiz</button>
+      </div>
+      <div class="right">
+        <span class="status-badge" id="progressBadge">0 of 10 answered</span>
+      </div>
+    </section>
+
+    <section class="score-panel" id="scorePanel" aria-live="polite">
+      <h2 class="score-title">Quiz Score</h2>
+      <div class="score-big" id="scoreText">0 / 10</div>
+      <div class="score-subtext" id="scoreSubtext">Select answers and check the quiz to see your score.</div>
+      <div class="legend">Per-question feedback appears under each item after you check it.</div>
+    </section>
+
+    <main id="quiz" class="quiz-grid" aria-label="Quiz questions"></main>
+
+
+  </div>
+
+  <script>
+    const questions = [
+      {
+        question: "How does a Treasury Inflation-Protected Security (TIPS) differ from an otherwise identical nominal Treasury note?",
+        options: [
+          "TIPS pay a *floating* coupon rate that is reset each period to track realized inflation; the principal is fixed at par.",
+          "TIPS have a *fixed* (real) coupon rate, but the principal amount is indexed to the CPI; the dollar coupon paid each period is the real coupon rate applied to the inflation-adjusted principal.",
+          "TIPS are perpetual securities with no maturity, whereas nominal Treasuries have a fixed maturity.",
+          "TIPS are zero-coupon bonds — they pay no coupons and only accrue inflation-linked interest at maturity."
+        ],
+        correctIndex: 1,
+        explanation: "A TIPS has a **fixed real** coupon rate \\(c\\), but its principal is indexed to inflation via the factor \\(I_t = \\text{Ref CPI}(t)/\\text{Ref CPI}(\\text{issue})\\). The dollar coupon at each date is \\((c/2)\\,F\\,I_t\\), so coupon cash flows automatically rise (or fall) with realized inflation, even though the rate \\(c\\) itself is fixed."
+      },
+      {
+        question: "For a TIPS, the **Reference CPI** that applies to the *first* day of any calendar month equals:",
+        options: [
+          "The most recently published CPI-U for that same month.",
+          "The CPI-U for the **third preceding** calendar month — for example, the Reference CPI on April 1 is the CPI-U index for January (which the BLS publishes in February).",
+          "A real-time daily CPI-U value published continuously by the BLS.",
+          "The trailing 12-month average of the CPI-U."
+        ],
+        correctIndex: 1,
+        explanation: "The Reference CPI for the first of any month is the BLS CPI-U from **three months earlier**. This three-month indexation lag exists because the CPI-U is itself published with a one-to-two-month lag, and the Treasury wants a CPI value that is already known when the TIPS principal is adjusted."
+      },
+      {
+        question: "The inflation-adjustment factor that scales the TIPS principal at time \\(t\\), and the rule for an interior (non-first-of-month) date, are:",
+        options: [
+          "\\(I_t = \\dfrac{\\text{Ref CPI at }t}{\\text{Ref CPI at issue}}\\); intra-month dates are **linearly interpolated** between the Reference CPI on the first of that month and the first of the next.",
+          "\\(I_t = \\text{Ref CPI at }t\\,-\\,\\text{Ref CPI at issue}\\); intra-month dates use the prior-month CPI-U as a step function.",
+          "\\(I_t = (1 + \\text{realized inflation rate})^{\\,t}\\); intra-month dates use the prior month-end CPI-U.",
+          "\\(I_t = \\dfrac{\\text{Ref CPI at issue}}{\\text{Ref CPI at }t}\\); intra-month dates use the next month's CPI-U."
+        ],
+        correctIndex: 0,
+        explanation: "The Treasury defines \\(I_t = \\text{Ref CPI}(t)/\\text{Ref CPI}(\\text{issue date})\\). For a date in the middle of a month, the Reference CPI is **linearly interpolated** between the Reference CPI for the first of that month and the first of the next month — this gives a smooth, daily-varying inflation factor."
+      },
+      {
+        question: "A TIPS with principal \\(F = 100\\) and **real** semi-annual coupon rate \\(c/2 = 2\\%\\) (i.e., \\(c = 4\\%\\) annual) pays a coupon at date \\(t\\) of:",
+        options: [
+          "\\((c/2)\\,F = 2.00\\) — the coupon is fixed in nominal terms; only the redemption value at maturity is inflation-adjusted.",
+          "\\((c/2)\\,F\\,I_t = 2.00\\,I_t\\) — the real coupon rate is applied to the **inflation-adjusted** principal \\(F\\,I_t\\).",
+          "\\(c\\,I_t = 0.04\\,I_t\\) — the annual real coupon rate scaled by the inflation factor, paid semi-annually.",
+          "\\((c/2)\\,F + (I_t - 1) = 2.00 + (I_t - 1)\\) — a fixed real coupon plus an explicit inflation top-up."
+        ],
+        correctIndex: 1,
+        explanation: "The real coupon rate is fixed but is applied to the inflation-adjusted principal \\(F\\,I_t\\). With \\(F = 100\\), \\(c = 4\\%\\), and inflation factor \\(I_t\\), the dollar coupon is \\((c/2)\\,F\\,I_t = 2\\,I_t\\) — automatically rising with inflation."
+      },
+      {
+        question: "TIPS embed deflation protection. At maturity \\(T\\), the principal redemption per \\(F = 100\\) of original principal is:",
+        options: [
+          "Always exactly \\(100\\) — TIPS pay back par regardless of the realized inflation factor.",
+          "\\(100 \\times I_T\\) — fully inflation-adjusted, including downside if \\(I_T < 1\\) (deflation).",
+          "\\(100 \\times \\max(I_T,\\,1)\\) — the inflation-adjusted principal, but **never less than par**. This protection applies only to the principal at maturity, not to any coupon cash flows.",
+          "\\(100 \\times \\min(I_T,\\,1)\\) — capped at par, protecting the issuer from inflation."
+        ],
+        correctIndex: 2,
+        explanation: "The Treasury guarantees that the final principal is no less than \\(100\\) per \\(100\\) of original notional, even if \\(I_T < 1\\). The redemption is therefore \\(F \\times \\max(I_T,\\,1)\\). Coupon cash flows, however, are still \\((c/2)\\,F\\,I_t\\) and are *not* floored at the original amount."
+      },
+      {
+        question: "In a zero-coupon inflation swap with maturity \\(T\\), notional \\(N\\), and fixed rate \\(f\\):",
+        options: [
+          "There are periodic semi-annual exchanges of fixed and floating cash flows, like a vanilla interest-rate swap.",
+          "There is a **single cash flow at maturity**. The inflation **buyer** receives \\(N\\,[I_T - 1]\\) (realized inflation) and pays \\(N\\,[(1+f)^T - 1]\\) (the fixed leg). No cash changes hands at \\(t = 0\\).",
+          "The inflation buyer receives \\(N\\) at maturity if realized inflation exceeds \\(f\\), and zero otherwise — it is an option, not a swap.",
+          "Cash flows are exchanged daily based on the BLS's daily CPI-U release."
+        ],
+        correctIndex: 1,
+        explanation: "A zero-coupon inflation swap has **one** netted cash flow at maturity: \\(N\\,[(1+f)^T - 1]\\) on the fixed leg vs. \\(N\\,[I_T - 1]\\) on the floating (inflation) leg. The inflation buyer is long inflation; the inflation seller is short. Like a standard swap, no cash changes hands at inception when \\(f\\) is set at the par rate."
+      },
+      {
+        question: "You hold a 6-month TIPS whose final cash flow (principal plus coupon) is \\(102 \\times I_{0.5}\\). You enter a 6-month zero-coupon inflation swap on notional \\(102\\) at fixed rate \\(f\\), as the **inflation seller**. The combined payoff in 6 months is \\(102\\,(1+f)^{0.5}\\) — independent of \\(I_{0.5}\\). Why?",
+        options: [
+          "Because the inflation swap re-prices the TIPS at the prevailing nominal rate, eliminating coupon risk.",
+          "As the inflation seller, you receive \\(102\\,[(1+f)^{0.5} - 1]\\) and pay \\(102\\,[I_{0.5} - 1]\\). Adding this to the TIPS payout \\(102\\,I_{0.5}\\), the \\(I_{0.5}\\) terms cancel, leaving the deterministic \\(102\\,(1+f)^{0.5}\\).",
+          "Because the inflation swap is priced at zero today; both legs have equal expected value, so there is no remaining cash flow.",
+          "Because TIPS coupons are nominal and therefore inflation-neutral, so the swap has no offsetting effect."
+        ],
+        correctIndex: 1,
+        explanation: "The TIPS pays \\(102\\,I_{0.5}\\). The inflation seller's swap cash flow is \\(102\\,[(1+f)^{0.5} - 1] - 102\\,[I_{0.5} - 1]\\). Summing: \\(102\\,I_{0.5} + 102\\,(1+f)^{0.5} - 102 - 102\\,I_{0.5} + 102 = 102\\,(1+f)^{0.5}\\). The inflation factor cancels exactly, leaving a deterministic nominal payoff."
+      },
+      {
+        question: "In the TIPS-Treasury arbitrage strategy in the lecture, the trader replicates a nominal Treasury bond's cash flows by combining:",
+        options: [
+          "Long TIPS \\(+\\) long inflation swaps (as inflation **buyer**) \\(+\\) long matched-maturity Treasury STRIPS.",
+          "Long TIPS \\(+\\) short inflation swaps (as inflation **seller**, one per coupon date) \\(+\\) Treasury STRIPS positions to top up cash flows — and goes **short** the nominal Treasury bond, pocketing the price difference today.",
+          "Long the nominal Treasury \\(+\\) short TIPS \\(+\\) long inflation swaps; the proceeds are reinvested in STRIPS.",
+          "Long inflation swaps alone — the fixed leg of the swap by itself replicates a fixed-coupon Treasury."
+        ],
+        correctIndex: 1,
+        explanation: "The replicating portfolio is **long TIPS + short inflation swaps + Treasury STRIPS**. Selling inflation strips out the \\(I_t\\) factor in the TIPS cash flows, leaving deterministic nominal amounts; STRIPS fine-tune those amounts to match the target Treasury's coupons. Going **short** the (overpriced) nominal Treasury and long the cheaper replicating portfolio locks in the arbitrage profit at \\(t=0\\)."
+      },
+      {
+        question: "Why are matched-maturity Treasury **STRIPS** included as small positions alongside the long TIPS and short inflation swaps?",
+        options: [
+          "To hedge interest-rate risk; STRIPS are zero-duration instruments that cancel duration mismatches.",
+          "To hedge counterparty credit risk on the inflation-swap leg.",
+          "To **fine-tune** the deterministic post-swap cash flows so that they exactly match the dollar coupon and principal cash flows of the target nominal Treasury at every payment date — not just hedge inflation in aggregate.",
+          "To convert the position into a perpetual annuity that does not expire."
+        ],
+        correctIndex: 2,
+        explanation: "After combining the TIPS with the strip of zero-coupon inflation swaps, the cash flows are deterministic but their *dollar amounts* don't generally match the target Treasury's coupons exactly. STRIPS — single-cash-flow zero-coupon Treasuries — let the trader add (or subtract) precise amounts at each future date, so the replicating portfolio's cash flows match the Treasury's cash flows date-by-date."
+      },
+      {
+        question: "On December 30, 2008, the lecture documents that the 7.625% nominal Treasury bond maturing 2/15/2025 traded at \\(\\$169.48\\) per \\(\\$100\\) notional, while the replicating portfolio (TIPS \\(+\\) inflation swaps \\(+\\) STRIPS) cost only \\(\\$146.38\\) — a difference of about \\(\\$23.10\\). What does this imply?",
+        options: [
+          "TIPS were *expensive* relative to the nominal Treasury; the replication should have cost more than the Treasury, so the comparison reveals nothing unusual.",
+          "TIPS were *cheap* relative to the nominal Treasury — the same future cash flows could be replicated at a lower cost via TIPS, violating the Law of One Price and creating an arbitrage.",
+          "There was no mispricing; the \\(\\$23.10\\) gap is exactly the value of the deflation option embedded in the TIPS.",
+          "The gap reflected the credit risk of the inflation-swap counterparty rather than any TIPS-Treasury mispricing."
+        ],
+        correctIndex: 1,
+        explanation: "Two portfolios with identical future cash flows must have the same price (Law of One Price). Replicating the Treasury's cash flows for \\(\\$146.38\\) when the Treasury itself trades at \\(\\$169.48\\) means TIPS-based replication was \\(\\$23.10\\) cheaper — i.e., TIPS were under-priced relative to nominals. Buying the cheap replicator and shorting the expensive Treasury is a textbook arbitrage. Fleckenstein, Longstaff, and Lustig (2014) document this as the largest arbitrage ever observed in U.S. Treasury markets."
+      }
+    ];
+
+    const quizEl = document.getElementById("quiz");
+    const progressBadge = document.getElementById("progressBadge");
+    const scorePanel = document.getElementById("scorePanel");
+    const scoreText = document.getElementById("scoreText");
+    const scoreSubtext = document.getElementById("scoreSubtext");
+    const checkAllBtn = document.getElementById("checkAllBtn");
+    const resetBtn = document.getElementById("resetBtn");
+
+    function typesetMath(target) {
+      if (window.MathJax && window.MathJax.typesetPromise) {
+        window.MathJax.typesetPromise(target ? [target] : undefined).catch(() => {});
+      }
+    }
+
+    function renderQuiz() {
+      quizEl.innerHTML = "";
+      questions.forEach((q, index) => {
+        const card = document.createElement("section");
+        card.className = "question-card";
+        card.dataset.index = index;
+
+        const optionsHTML = q.options.map((option, optionIndex) => `
+          <label class="option">
+            <input type="radio" name="q${index}" value="${optionIndex}" />
+            <span class="option-text"><strong>${String.fromCharCode(65 + optionIndex)}.</strong> ${option}</span>
+          </label>
+        `).join("");
+
+        card.innerHTML = `
+          <div class="question-head">
+            <div class="question-number">${index + 1}</div>
+            <h2 class="question-title">${q.question}</h2>
+          </div>
+          <div class="question-body">
+            <div class="options" role="radiogroup" aria-label="Question ${index + 1}">
+              ${optionsHTML}
+            </div>
+            <div class="question-actions">
+              <button class="btn-small btn-primary" type="button" data-action="check" data-index="${index}">
+                Check Answer
+              </button>
+            </div>
+            <div class="feedback" id="feedback-${index}" aria-live="polite"></div>
+          </div>
+        `;
+        quizEl.appendChild(card);
+      });
+      updateProgress();
+      typesetMath(quizEl);
+    }
+
+    function getSelectedIndex(questionIndex) {
+      const selected = document.querySelector(`input[name="q${questionIndex}"]:checked`);
+      return selected ? Number(selected.value) : null;
+    }
+
+    function showFeedback(questionIndex, mode = "single") {
+      const q = questions[questionIndex];
+      const selectedIndex = getSelectedIndex(questionIndex);
+      const feedbackEl = document.getElementById(`feedback-${questionIndex}`);
+      feedbackEl.className = "feedback show";
+
+      if (selectedIndex === null) {
+        feedbackEl.classList.add("warning");
+        feedbackEl.innerHTML = `
+          <strong>No answer selected yet.</strong>
+          Choose one option, then check your answer.
+        `;
+        typesetMath(feedbackEl);
+        return { answered: false, correct: false };
+      }
+
+      if (selectedIndex === q.correctIndex) {
+        feedbackEl.classList.add("correct");
+        feedbackEl.innerHTML = `
+          <strong>Correct.</strong>
+          ${q.explanation}
+        `;
+        typesetMath(feedbackEl);
+        return { answered: true, correct: true };
+      } else {
+        feedbackEl.classList.add("incorrect");
+        const correctLetter = String.fromCharCode(65 + q.correctIndex);
+        feedbackEl.innerHTML = `
+          <strong>Incorrect.</strong>
+          Correct answer: <strong>${correctLetter}</strong>. ${q.explanation}
+        `;
+        typesetMath(feedbackEl);
+        return { answered: true, correct: false };
+      }
+    }
+
+    function updateProgress() {
+      let answered = 0;
+      questions.forEach((_, index) => {
+        if (getSelectedIndex(index) !== null) answered += 1;
+      });
+      progressBadge.textContent = `${answered} of ${questions.length} answered`;
+    }
+
+    function scoreQuiz() {
+      let answered = 0;
+      let correct = 0;
+
+      questions.forEach((_, index) => {
+        const result = showFeedback(index, "all");
+        if (result.answered) answered += 1;
+        if (result.correct) correct += 1;
+      });
+
+      const percent = Math.round((correct / questions.length) * 100);
+      scorePanel.classList.add("show");
+      scoreText.textContent = `${correct} / ${questions.length}`;
+
+      if (answered < questions.length) {
+        scoreSubtext.textContent = `You have ${correct} correct so far (${percent}%). ${questions.length - answered} question(s) are still unanswered.`;
+      } else {
+        scoreSubtext.textContent = `You answered all questions. Score: ${percent}%.`;
+      }
+    }
+
+    function resetQuiz() {
+      document.querySelectorAll('input[type="radio"]').forEach(input => {
+        input.checked = false;
+      });
+      document.querySelectorAll('.feedback').forEach(el => {
+        el.className = 'feedback';
+        el.innerHTML = '';
+      });
+      scorePanel.classList.remove("show");
+      scoreText.textContent = "0 / 10";
+      scoreSubtext.textContent = "Select answers and check the quiz to see your score.";
+      updateProgress();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    document.addEventListener("change", (event) => {
+      if (event.target.matches('input[type="radio"]')) {
+        updateProgress();
+      }
+    });
+
+    document.addEventListener("click", (event) => {
+      const btn = event.target.closest("button[data-action='check']");
+      if (!btn) return;
+      const index = Number(btn.dataset.index);
+      showFeedback(index, "single");
+      updateProgress();
+    });
+
+    checkAllBtn.addEventListener("click", scoreQuiz);
+    resetBtn.addEventListener("click", resetQuiz);
+
+    renderQuiz();
+  </script>
+</body>
+</html>
